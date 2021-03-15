@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -58,6 +59,7 @@ class RegisterController extends Controller
             'vat_number' => ['required', 'unique:users', 'min:13', 'max:13'],
             'shipping_costs' => ['required'],
             'cover' => ['nullable'],
+            'categories' => ['required'],
         ]);
     }
 
@@ -84,5 +86,19 @@ class RegisterController extends Controller
             'shipping_costs' => $data['shipping_costs'],
             'cover' => isset($data['cover']) ? $data['cover'] : asset('img/default_restaurant.svg'),
         ]);
+
+        $newUser = User::orderBy('id', 'desc')->first();
+        $newUser->categories()->attach($data['categories']);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $categories = Category::all();
+        return view('auth.register', compact('categories'));
     }
 }
