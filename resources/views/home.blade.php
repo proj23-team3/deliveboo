@@ -20,4 +20,6 @@
         </div>
     </div>
 </div>
+
+<a href="{{ route('admin.user.edit',['user'=> $user->id] )}} "> modifica img ristorante</a>
 @endsection
