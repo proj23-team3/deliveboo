@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -20,7 +21,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -53,6 +54,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['required'],
+            'vat_number' => ['required', 'unique:users', 'min:13', 'max:13'],
+            'shipping_costs' => ['required'],
+            'cover' => ['nullable'],
         ]);
     }
 
@@ -64,10 +69,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //verifica se viene passato l'input file
+        if (!empty($data['cover'])) {
+            $cover = Storage::put('covers', $data['cover']);
+            $data['cover'] = $cover;
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'vat_number' => $data['vat_number'],
+            'shipping_costs' => $data['shipping_costs'],
+            'cover' => isset($data['cover']) ? $data['cover'] : asset('img/default_restaurant.svg'),
         ]);
     }
 }
