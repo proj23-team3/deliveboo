@@ -108,15 +108,17 @@
                                 </div>
                             </div>
 
-                            <div>
-                                <label for="categories">Categories</label>
-                                <select name="categories[]" id="categories" multiple>
-                                    @if ($categories)
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
+                            <div class="form-group row">
+                                <label for="categories" class="col-md-4 col-form-label text-md-right">Categories</label>
+                                <div class="col-md-6">
+                                    <select name="categories[]" id="categories" class="form-control" multiple>
+                                        @if ($categories)
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
                             </div>
                             @error('categories')
                                 <div class="error_field_required">{{ $message }}</div>

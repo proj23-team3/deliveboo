@@ -77,7 +77,7 @@ class RegisterController extends Controller
             $data['cover'] = $cover;
         }
 
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -89,6 +89,8 @@ class RegisterController extends Controller
 
         $newUser = User::orderBy('id', 'desc')->first();
         $newUser->categories()->attach($data['categories']);
+
+        return $newUser;
     }
 
     /**
