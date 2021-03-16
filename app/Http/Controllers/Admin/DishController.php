@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -19,7 +19,7 @@ class DishController extends Controller
     {
         $dishes = Dish::all();
 
-        return view('admin.dishes.index',compact('dishes'));
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
@@ -40,8 +40,8 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $validated_data = $request ->validate([
+
+        $validated_data = $request->validate([
             'dish_name' => 'required',
             'dish_ingredients' => 'required',
             'dish_price' => 'required',
@@ -49,18 +49,21 @@ class DishController extends Controller
             'dish_image' => 'image | max:500',
         ]);
 
-         //verifica se viene passato l'input file
-         if (!empty($request->dish_image)) {
+        //verifica se viene passato l'input file
+        if (!empty($request->dish_image)) {
             $dish_image = Storage::disk('public')->put('dishes', $request->dish_image);
             $validated_data['dish_image'] = $dish_image;
+        } else {
+            // assegna l'img di default
+            $dish_image = asset('img/default_dish.svg');
+            $validated_data['dish_image'] = $dish_image;
         }
-        
+
         $new_dish = new Dish($validated_data);
-        $new_dish->dish_image = isset($request->dish_image) ? $request->dish_image : asset('img/default_dish.svg');
         $new_dish->user_id = Auth::id();
         $new_dish->save();
 
-       return redirect()->route('admin.dishes.index');
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
@@ -82,7 +85,7 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        return view('admin.dishes.edit',compact('dish'));
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
@@ -94,7 +97,7 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        $validated_data = $request ->validate([
+        $validated_data = $request->validate([
             'dish_name' => 'required',
             'dish_ingredients' => 'required',
             'dish_price' => 'required',
@@ -102,8 +105,8 @@ class DishController extends Controller
             'dish_image' => 'image | max:500',
         ]);
 
-         //verifica se viene passato l'input file
-         if (!empty($request->dish_image)) {
+        //verifica se viene passato l'input file
+        if (!empty($request->dish_image)) {
             $dish_image = Storage::disk('public')->put('dishes', $request->dish_image);
             $validated_data['dish_image'] = $dish_image;
         }
