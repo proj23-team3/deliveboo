@@ -21,5 +21,6 @@
     </div>
 </div>
 
-<a href="{{ route('admin.user.edit',['user'=> $user->id] )}} "> modifica img ristorante</a>
+<a href="{{ route('admin.users.edit',['user'=> $user->id] )}} "> modifica img ristorante</a>
+<a href="{{ route('admin.dishes.index')}} ">Index of Dishes</a>
 @endsection

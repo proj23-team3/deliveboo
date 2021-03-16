@@ -8,7 +8,7 @@
 <h3>{{$user->shipping_costs}}</h3>
 <img src="{{str_contains($user->cover,'cover') ? asset('storage/' . $user->cover) : asset('img/default_restaurant.svg')  }}" alt="" width="300">
 
-<form action="{{route('admin.user.update',['user' => $user->id])}}" enctype="multipart/form-data" method="POST">
+<form action="{{route('admin.users.update',['user' => $user->id])}}" enctype="multipart/form-data" method="POST">
     @csrf
     @method('PUT')
     <div class="form-group row">
