@@ -7,4 +7,9 @@
     <img src="{{ str_contains($dish->dish_image, 'dishes') ? asset('storage/' . $dish->dish_image) : asset('img/default_dish.svg') }}"
         width="250" alt="">
     <a href="{{ route('admin.dishes.edit', ['dish' => $dish->id]) }}" class="btn btn-primary">Edit</a>
+    <form action="{{ route('admin.dishes.destroy', ['dish' => $dish->id]) }}" method="post">
+        @csrf
+        @method('DELETE')
+        <button>Delete</button>
+    </form>
 @endforeach
