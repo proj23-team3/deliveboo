@@ -73,26 +73,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card my-5">
-                            <img class="card-img img-responsive" src="{{ asset('img/pizza_image.jpg') }}"
-                                alt="Card image">
-                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                                <h2 class="card-text text-center text-white">Food Category
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card my-5">
-                            <img class="card-img img-responsive" src="{{ asset('img/pizza_image.jpg') }}"
-                                alt="Card image">
-                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                                <h2 class="card-text text-center text-white">Food Category
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
