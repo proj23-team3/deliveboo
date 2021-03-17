@@ -1,5 +1,6 @@
 <?php
 
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('guest.home');
+    $categories = Category::all();
+    return view('guest.home', compact('categories'));
 });
 
 Auth::routes();
