@@ -61,7 +61,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
+                                                                 document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -87,7 +87,7 @@
                     </li>
                     <li class="nav-item">
                         {{-- questo punterà al menu con la lista piatti e bottone per aggiungere un piatto --}}
-                        <a class="nav-link {{ Route::is('admin.dishes.index') ? 'btn btn-primary' : 'text-muted' }}"
+                        <a class="nav-link {{ Route::is('admin.dishes.*') ? 'btn btn-primary' : 'text-muted' }}"
                             href="{{ route('admin.dishes.index') }}">Il
                             tuo menu</a>
                     </li>
