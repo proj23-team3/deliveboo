@@ -1,10 +1,31 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 // Variables
 @import "variables";
 
 // Bootstrap
 $primary: #00ccbc;
-$text: #2e3333;
+$secondary: #d0eb99;
+
 @import "~bootstrap/scss/bootstrap";
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.purple {
+    color: #450063;
+}
+
+.bg_purple {
+    background-color: #450063;
+}
+
+.rose {
+    color: #ffeae4;
+}
+
+.bg_rose {
+    background-color: #ffeae4;
+}
