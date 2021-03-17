@@ -17,8 +17,9 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
-
+        // $dishes = Dish::all();
+        // occorre selezionare solo i piatti dello user
+        $dishes = Auth::user()->dishes;
         return view('admin.dishes.index', compact('dishes'));
     }
 
