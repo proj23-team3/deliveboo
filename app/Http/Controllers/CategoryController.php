@@ -8,17 +8,6 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $categories = Category::all();
-        return view('guest.home', compact('categories'));
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Category  $category
@@ -26,6 +15,6 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('guest.search',compact('category'));
     }
 }
