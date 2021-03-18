@@ -24,7 +24,7 @@
                 <div class="row">
                     @foreach ($categories as $category)
                         <div class="col-md-3">
-                            <a href="#">
+                            <a href="{{route('categories.show',['category'=>$category->id])}}">
                                 <div class="card my-2">
                                     <img class="card-img img-responsive" src="{{ asset($category->cat_img) }}"
                                         alt="Card image" height="200">

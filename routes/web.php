@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// Route::get('/', function () {
-//     $categories = Category::all();
-//     return view('guest.home', compact('categories'));
-// });
+// Page Controller
+Route::get('/', 'PageController@home');
+
 //  Route Resource Controller
-Route::resource('/', 'CategoryController')->only(['index', 'show']);
+Route::resource('categories', 'CategoryController')->only('show');
+
 
 Auth::routes();
 
