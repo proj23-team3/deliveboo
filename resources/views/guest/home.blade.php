@@ -26,15 +26,15 @@
                         <div class="col-md-3">
                             <a href="#">
                                 <div class="card my-2">
-                                    <img class="card-img img-responsive" src="{{ asset('img/pizza_image.jpg') }}"
-                                        alt="Card image">
+                                    <img class="card-img img-responsive" src="{{ asset($category->cat_img) }}"
+                                        alt="Card image" height="200">
                                     <div class="card-img-overlay d-flex justify-content-center align-items-center">
                                         <h2 class="card-text text-center text-white font-weight-bolder">
                                             {{ $category->name }}
                                         </h2>
                                     </div>
                                     <p class="card-text">
-                                        Descrizione categoria.
+                                        {{ $category->description }}
                                     </p>
                                 </div>
                             </a>
