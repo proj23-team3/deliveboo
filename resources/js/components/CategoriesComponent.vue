@@ -1,27 +1,28 @@
 <template>
     <div class="card_container">
-        <div class="card" v-for="category in categories" :key="category.id">
-            <div class="">{{category.name}}</div>
-           
+        <div class="checkbox" v-for="category in categories" :key="category.id">
+            <label>
+                <input type="checkbox" class="icheck" checked />
+                {{ category.name }}
+            </label>
         </div>
+        <p>{{ choose_cat }}</p>
     </div>
 </template>
 
 <script>
-    export default {
-        data(){
-            return {
-                categories: ""
-            }
-            
-        },
-        mounted() {
-            axios.get('../api/categories').then(response => {
-                console.log(response);
-                this.categories =response.data.response;
-                
-                    });
-            
-        }
+export default {
+    props: ["choose_cat"],
+    data() {
+        return {
+            categories: ""
+        };
+    },
+    mounted() {
+        axios.get("../api/categories").then(response => {
+            console.log(response);
+            this.categories = response.data.response;
+        });
     }
+};
 </script>
