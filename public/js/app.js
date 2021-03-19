@@ -1917,7 +1917,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["choose_cat"],
   data: function data() {
     return {
       categories: ""
@@ -1926,7 +1930,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('../api/categories').then(function (response) {
+    axios.get("../api/categories").then(function (response) {
       console.log(response);
       _this.categories = response.data.response;
     });
@@ -37632,12 +37636,22 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "card_container" },
-    _vm._l(_vm.categories, function(category) {
-      return _c("div", { key: category.id, staticClass: "card" }, [
-        _c("div", {}, [_vm._v(_vm._s(category.name))])
-      ])
-    }),
-    0
+    [
+      _vm._l(_vm.categories, function(category) {
+        return _c("div", { key: category.id, staticClass: "checkbox" }, [
+          _c("label", [
+            _c("input", {
+              staticClass: "icheck",
+              attrs: { type: "checkbox", checked: "" }
+            }),
+            _vm._v("\n            " + _vm._s(category.name) + "\n        ")
+          ])
+        ])
+      }),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.choose_cat))])
+    ],
+    2
   )
 }
 var staticRenderFns = []
