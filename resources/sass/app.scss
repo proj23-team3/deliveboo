@@ -1,5 +1,5 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"); */
 
 // Variables
 @import "variables";
@@ -11,23 +11,11 @@ $secondary: #d0eb99;
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Stratos", sans-serif;
 }
 
 .purple {
     color: #450063;
-}
-
-.bg_purple {
-    background-color: #450063;
-}
-
-.rose {
-    color: #ffeae4;
-}
-
-.bg_rose {
-    background-color: #ffeae4;
 }
 
 .rider {
@@ -37,4 +25,26 @@ body {
 .hashtag {
     color: white;
     background-color: #007e8a;
+}
+
+/* .navbar:before {
+    content: "";
+    position: absolute;
+    right: -90%;
+    top: 5vh;
+    border-top: 230px solid #00ccbc;
+    border-right: 3840px solid transparent;
+} */
+
+.overlay:before {
+    content: "";
+    width: 100%;
+    height: 256px;
+    position: absolute;
+    right: 0;
+    background-color: #00ccbc;
+    /* -webkit-transform: skewY(-4deg); */
+    transform: skewY(-4deg);
+    /* -webkit-transform-origin: left; */
+    transform-origin: left;
 }

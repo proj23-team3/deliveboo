@@ -8,12 +8,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/ije6ase.css">
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
 </head>
 
 <body>
     <div id="app">
-        <div class="container-fluid bg-primary">
+        <div class="container-fluid bg-primary overlay">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light ">
                     <a class="navbar-brand" href="#">
