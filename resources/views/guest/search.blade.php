@@ -1,5 +1,8 @@
 @extends('layouts.guest')
 @section('content')
+<div id="app">
+    <categories-component></categories-component>
+ </div>
     <div class="container">
         <div class="row">
             <!-- BEGIN SEARCH RESULT -->
@@ -92,100 +95,23 @@
                                 <div class="table-responsive">
                                     <table class="table table-hover">
                                         <tbody>
+                                        @foreach ($restaurants as $restaurant)
+                                        @if ($restaurant->category_id = $category->id)
+                                             
                                             <tr>
                                                 <td class="number text-center">1</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300/FF8C00"
-                                                        alt=""></td>
-                                                <td class="product"><strong>Product 1</strong><br>This is the product
-                                                    description.</td>
+                                                <td class="image"><img src="{{$restaurant->cover}}"
+                                                        alt="" height="300"></td>
+                                                <td class="product"><strong>{{$restaurant->name}}</strong><br>{{$restaurant->address}}</td>
                                                 <td class="rate text-right"><span><i class="fa fa-star"></i><i
                                                             class="fa fa-star"></i><i class="fa fa-star"></i><i
                                                             class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span>
                                                 </td>
-                                                <td class="price text-right">$350</td>
+                                                <td class="price text-right">Consegna {{$restaurant->shipping_costs}} €</td>
                                             </tr>
-                                            <tr>
-                                                <td class="number text-center">2</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300/5F9EA0"
-                                                        alt=""></td>
-                                                <td class="product"><strong>Product 2</strong><br>This is the product
-                                                    description.</td>
-                                                <td class="rate text-right"><span><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span>
-                                                </td>
-                                                <td class="price text-right">$1,050</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="number text-center">3</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300" alt="">
-                                                </td>
-                                                <td class="product"><strong>Product 3</strong><br>This is the product
-                                                    description.</td>
-                                                <td class="rate text-right"><span><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star-half-o"></i><i
-                                                            class="fa fa-star-o"></i></span></td>
-                                                <td class="price text-right">$550</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="number text-center">4</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300/8A2BE2"
-                                                        alt=""></td>
-                                                <td class="product"><strong>Product 4</strong><br>This is the product
-                                                    description.</td>
-                                                <td class="rate text-right"><span><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star-o"></i></span></td>
-                                                <td class="price text-right">$330</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="number text-center">5</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300" alt="">
-                                                </td>
-                                                <td class="product"><strong>Product 5</strong><br>This is the product
-                                                    description.</td>
-                                                <td class="rate text-right"><span><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i></span></td>
-                                                <td class="price text-right">$540</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="number text-center">6</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300/6495ED"
-                                                        alt=""></td>
-                                                <td class="product"><strong>Product 6</strong><br>This is the product
-                                                    description.</td>
-                                                <td class="rate text-right"><span><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span>
-                                                </td>
-                                                <td class="price text-right">$870</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="number text-center">7</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300/DC143C"
-                                                        alt=""></td>
-                                                <td class="product"><strong>Product 7</strong><br>This is the product
-                                                    description.</td>
-                                                <td class="rate text-right"><span><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star-o"></i><i
-                                                            class="fa fa-star-o"></i><i class="fa fa-star-o"></i></span>
-                                                </td>
-                                                <td class="price text-right">$620</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="number text-center">8</td>
-                                                <td class="image"><img src="https://via.placeholder.com/400x300/9932CC"
-                                                        alt=""></td>
-                                                <td class="product"><strong>Product 8</strong><br>This is the product
-                                                    description.</td>
-                                                <td class="rate text-right"><span><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span>
-                                                </td>
-                                                <td class="price text-right">$1,550</td>
-                                            </tr>
+                                            @endif
+                                            @endforeach
+                             
                                         </tbody>
                                     </table>
                                 </div>
@@ -200,4 +126,8 @@
             <!-- END SEARCH RESULT -->
         </div>
     </div>
+@endsection
+
+@section('scriptJs')
+<script  src="{{ asset('js/app.js') }}"></script>
 @endsection

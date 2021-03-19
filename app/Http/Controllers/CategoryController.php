@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\User;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -15,6 +16,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('guest.search',compact('category'));
+        $restaurants = User::all();
+        return view('guest.search',compact('category','restaurants'));
     }
 }
