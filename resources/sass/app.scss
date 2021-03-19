@@ -12,8 +12,10 @@ $secondary: #d0eb99;
 
 body {
     font-family: "Stratos", sans-serif;
+    &::-webkit-scrollbar {
+        display: none;
+      }
 }
-
 .purple {
     color: #450063;
 }
@@ -35,16 +37,16 @@ body {
     border-top: 230px solid #00ccbc;
     border-right: 3840px solid transparent;
 } */
+.jumbotron{
+    position: relative;
+}
 
 .overlay:before {
     content: "";
     width: 100%;
-    height: 256px;
     position: absolute;
     right: 0;
-    background-color: #00ccbc;
-    /* -webkit-transform: skewY(-4deg); */
-    transform: skewY(-4deg);
-    /* -webkit-transform-origin: left; */
-    transform-origin: left;
+    top: 0;
+    border-top: 100vh solid $primary;
+    border-right: 500vh solid transparent;
 }
