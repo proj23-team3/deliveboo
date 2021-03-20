@@ -1,6 +1,13 @@
-@import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;
+@charset "UTF-8";
 
-0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap);@charset "UTF-8";
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"); */
+
+/*!
+ * Bootstrap v4.6.0 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 
 :root {
   --blue: #3490dc;
@@ -10938,23 +10945,15 @@ a.text-dark:focus {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Stratos", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .purple {
   color: #450063;
-}
-
-.bg_purple {
-  background-color: #450063;
-}
-
-.rose {
-  color: #ffeae4;
-}
-
-.bg_rose {
-  background-color: #ffeae4;
 }
 
 .rider {
@@ -10964,5 +10963,28 @@ body {
 .hashtag {
   color: white;
   background-color: #007e8a;
+}
+
+/* .navbar:before {
+    content: "";
+    position: absolute;
+    right: -90%;
+    top: 5vh;
+    border-top: 230px solid #00ccbc;
+    border-right: 3840px solid transparent;
+} */
+
+.jumbotron {
+  position: relative;
+}
+
+.overlay:before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top: 100vh solid #00ccbc;
+  border-right: 500vh solid transparent;
 }
 
