@@ -2153,10 +2153,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["choose_cat", "rests"],
   data: function data() {
     return {
+      search: "",
+      searchedRestaurant: [],
       categories: [],
       checked: [],
       restaurants: []
@@ -2189,6 +2229,18 @@ __webpack_require__.r(__webpack_exports__);
 
       _this2.restaurants = _this2.$props.rests;
     });
+  },
+  methods: {
+    restaurantFunc: function restaurantFunc() {
+      var _this3 = this;
+
+      axios.get("../api/users?name=".concat(this.search)).then(function (response) {
+        console.log(response);
+        _this3.searchedRestaurant = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -37977,7 +38029,53 @@ var render = function() {
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
-                _vm._m(2),
+                _c(
+                  "form",
+                  {
+                    staticClass: "input-group",
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.restaurantFunc($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.search,
+                          expression: "search"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.search },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.search = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "input-group-btn" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "button" },
+                          on: { click: _vm.restaurantFunc }
+                        },
+                        [_c("i", { staticClass: "fa fa-search" })]
+                      )
+                    ])
+                  ]
+                ),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
@@ -37987,49 +38085,82 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "padding" }),
                 _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
                 _c("div", { staticClass: "table-responsive" }, [
                   _c("table", { staticClass: "table table-hover" }, [
                     _c(
                       "tbody",
-                      _vm._l(_vm.filteredRests, function(rest) {
-                        return _c("tr", { key: rest.id }, [
-                          _c("td", { staticClass: "number text-center" }, [
-                            _vm._v(
-                              "\n                                                1\n                                            "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "image" }, [
-                            _c("img", {
-                              attrs: { src: rest.cover, alt: "", height: "300" }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "product" }, [
-                            _c("strong", [_vm._v(_vm._s(rest.name))]),
-                            _c("br"),
-                            _vm._v(
-                              _vm._s(rest.address) +
-                                "\n                                            "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(4, true),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "price text-right" }, [
-                            _vm._v(
-                              "\n                                                Consegna\n                                                " +
-                                _vm._s(rest.shipping_costs) +
-                                "\n                                                €\n                                            "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(5, true)
-                        ])
-                      }),
-                      0
+                      [
+                        _vm._l(_vm.filteredRests, function(rest) {
+                          return _c("tr", { key: rest.id }, [
+                            _c("td", { staticClass: "image" }, [
+                              _c("img", {
+                                attrs: {
+                                  src: rest.cover,
+                                  alt: "",
+                                  height: "300"
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "product" }, [
+                              _c("strong", [_vm._v(_vm._s(rest.name))]),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(rest.address) +
+                                  "\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(2, true),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "price text-right" }, [
+                              _vm._v(
+                                "\n                                                Consegna\n                                                " +
+                                  _vm._s(rest.shipping_costs) +
+                                  "\n                                                €\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(3, true)
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _vm._l(_vm.searchedRestaurant, function(searched) {
+                          return _c("tr", { key: searched.id }, [
+                            _c("td", { staticClass: "image" }, [
+                              _c("img", {
+                                attrs: {
+                                  src: searched.cover,
+                                  alt: "",
+                                  height: "300"
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "product" }, [
+                              _c("strong", [_vm._v(_vm._s(searched.name))]),
+                              _c("br"),
+                              _vm._v(
+                                _vm._s(searched.address) +
+                                  "\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(4, true),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "price text-right" }, [
+                              _vm._v(
+                                "\n                                                Consegna\n                                                " +
+                                  _vm._s(searched.shipping_costs) +
+                                  "\n                                                €\n                                            "
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(5, true)
+                          ])
+                        })
+                      ],
+                      2
                     )
                   ])
                 ])
@@ -38046,36 +38177,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "grid-title" }, [
+    return _c("h2", { staticClass: "grid-title mt-4" }, [
       _c("i", { staticClass: "fa fa-filter" }),
-      _vm._v(" Filtri\n                            ")
+      _vm._v(" Categorie\n                            ")
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h2", [
+    return _c("h2", { staticClass: "mt-4" }, [
       _c("i", { staticClass: "fa fa-file-o" }),
-      _vm._v(" Result")
+      _vm._v(" Risultati\n                            ")
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", value: "Piatti, ristoranti o tipi di cucina" }
-      }),
-      _vm._v(" "),
-      _c("span", { staticClass: "input-group-btn" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_c("i", { staticClass: "fa fa-search" })]
-        )
+    return _c("td", { staticClass: "rate text-right" }, [
+      _c("span", [
+        _c("i", { staticClass: "fa fa-star" }),
+        _c("i", { staticClass: "fa fa-star" }),
+        _c("i", { staticClass: "fa fa-star" }),
+        _c("i", { staticClass: "fa fa-star" }),
+        _c("i", { staticClass: "fa fa-star-half-o" })
       ])
     ])
   },
@@ -38083,25 +38209,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6 text-right" }, [
-        _c("div", { staticClass: "btn-group" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-default active",
-              attrs: { type: "button" }
-            },
-            [_c("i", { staticClass: "fa fa-list" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-default", attrs: { type: "button" } },
-            [_c("i", { staticClass: "fa fa-th" })]
-          )
-        ])
-      ])
+    return _c("td", [
+      _c("a", { attrs: { href: "" } }, [_vm._v("Vai al ristorante")])
     ])
   },
   function() {
