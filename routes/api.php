@@ -24,3 +24,5 @@ Route::get('categories', function () {
         'response' => Category::all(),
     ]);
 });
+
+Route::apiResource('users', 'API\UserController')->only(['index','show']);
