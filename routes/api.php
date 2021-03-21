@@ -19,10 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('categories', function () {
-    return response()->json([
-        'response' => Category::all(),
-    ]);
-});
+// Route::get('categories', function () {
+//     return response()->json([
+//         'response' => Category::all(),
+//     ]);
+// });
+Route::apiResource('categories', 'API\CategoryController')->only('index');
 
 Route::apiResource('users', 'API\UserController')->only(['index','show']);
