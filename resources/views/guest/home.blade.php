@@ -18,6 +18,37 @@
     </div>
 </header>
 <main>
+        <section>
+        <div class="container">
+            <h2 class="font-weight-bolder text-center">Ordina subito</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow my-4 p-5">
+                        <img class="card-img img-responsive" src="{{ asset('img/Chose.gif') }}" alt="Card image" height="200">
+                        <h4 class="card-text text-center">
+                            Scegli i tuoi piatti dal nostro menù
+                        </h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow my-4 p-5">
+                        <img class="card-img img-responsive" src="{{ asset('img/Restaurant.gif') }}" alt="Card image" height="200">
+                        <h4 class="card-text text-center">
+                            Ordina dal tuo ristorante preferito
+                        </h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow my-4 p-5">
+                        <img class="card-img img-responsive" src="{{ asset('img/Delivery.gif') }}" alt="Card image" height="200">
+                        <h4 class="card-text text-center">
+                            I tuoi piatti arriveranno al volo
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="selection">
         <div class="container">
             <h2 class="font-weight-bolder">La selezione di Deliveboo</h2>
