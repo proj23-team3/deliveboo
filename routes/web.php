@@ -1,6 +1,5 @@
 <?php
 
-use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 // Page Controller
 Route::get('/', 'PageController@home');
+// restaurant route
+Route::get('categories/restaurant/{id}', 'PageController@restaurant')->name('restaurant');
 
 //  Route Resource Controller
 Route::resource('categories', 'CategoryController')->only('show');
-
 
 Auth::routes();
 

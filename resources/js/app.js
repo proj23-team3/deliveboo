@@ -27,6 +27,7 @@ Vue.component(
     "search-component",
     require("./components/SearchComponent.vue").default
 );
+Vue.component("rest", require("./components/Rest.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
