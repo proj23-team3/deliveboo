@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Illuminate\Http\Request;
+use App\User;
 
 class PageController extends Controller
 {
-    public function home() {
+    public function home()
+    {
 
         $categories = Category::all();
         return view('guest.home', compact('categories'));
+    }
+
+    public function restaurant($id)
+    {
+        $ristorante = User::where('id', $id)->with('dishes')->get();
+        return view('guest.rest', compact('ristorante'));
     }
 }

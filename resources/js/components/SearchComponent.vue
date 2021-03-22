@@ -115,7 +115,10 @@
                                                     €
                                                 </td>
                                                 <td>
-                                                    <a href=""
+                                                    <a
+                                                        :href="
+                                                            `restaurant/${rest.id}`
+                                                        "
                                                         >Vai al ristorante</a
                                                     >
                                                 </td>
@@ -169,7 +172,10 @@
                                                     €
                                                 </td>
                                                 <td>
-                                                    <a href=""
+                                                    <a
+                                                        :href="
+                                                            `restaurant/${searched.id}`
+                                                        "
                                                         >Vai al ristorante</a
                                                     >
                                                 </td>
@@ -212,6 +218,12 @@ export default {
             checked: [],
             restaurants: []
         };
+    },
+    methods: {
+        // getRoute(id) {
+        //     let route = `/restaurant/${id}`;
+        //     return route;
+        // }
     },
     computed: {
         filteredRests() {
