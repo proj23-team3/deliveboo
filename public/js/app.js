@@ -2046,8 +2046,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["rest"],
+  props: ["rest", "route"],
   data: function data() {
     return {
       restaurant: this.$props.rest[0],
@@ -2106,10 +2120,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         localStorage.setItem("carrello", JSON.stringify(this.carrello)); //cartbtn
 
         var cartBtn = document.getElementById("cart_btn");
-        var cart = JSON.parse(localStorage.getItem('carrello'));
+        var cart = JSON.parse(localStorage.getItem("carrello"));
 
         if (cart.length == 0) {
-          if (cartBtn.classList.contains('text-success')) {
+          if (cartBtn.classList.contains("text-success")) {
             cartBtn.classList.remove("text-success");
           }
         }
@@ -38783,7 +38797,11 @@ var render = function() {
           { staticClass: "col-md-6 piatti" },
           [
             _c("h3", { staticClass: "text-uppercase text-black" }, [
-              _vm._v(_vm._s(_vm.restaurant.name))
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.restaurant.name) +
+                  "\n                "
+              )
             ]),
             _vm._v(" "),
             _vm._l(_vm.restaurant.dishes, function(dish) {
@@ -38809,7 +38827,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                                Aggiungi al carrello\n                            "
+                          "\n                            Aggiungi al carrello\n                        "
                         )
                       ]
                     )
@@ -38880,9 +38898,13 @@ var render = function() {
                       "a",
                       {
                         staticClass: "btn btn-lg btn-success text-uppercase",
-                        attrs: { href: "#" }
+                        attrs: { href: _vm.route }
                       },
-                      [_vm._v(" vai al  checkout ")]
+                      [
+                        _vm._v(
+                          "\n                    vai al checkout\n                "
+                        )
+                      ]
                     )
                   : _vm._e()
               ],

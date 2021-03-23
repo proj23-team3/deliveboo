@@ -19,4 +19,11 @@ class PageController extends Controller
         $ristorante = User::where('id', $id)->with('dishes')->get();
         return view('guest.rest', compact('ristorante'));
     }
+
+    public function checkout()
+    {
+
+        
+        return view('guest.payment');
+    }
 }
