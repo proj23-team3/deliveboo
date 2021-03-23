@@ -9,12 +9,11 @@
                             <!-- BEGIN FILTERS -->
                             <div class="col-md-3">
                                 <h2 class="grid-title mt-4">
-                                    <i class="fa fa-filter"></i> Categorie
+                                    Categorie
                                 </h2>
                                 <hr />
 
                                 <!-- BEGIN FILTER BY CATEGORY -->
-                                <h4>Categorie</h4>
                                 <div class="card_container">
                                     <div
                                         class="checkbox"

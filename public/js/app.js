@@ -2329,7 +2329,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   props: ["choose_cat", "rests"],
   data: function data() {
@@ -38213,11 +38212,13 @@ var render = function() {
           _c("div", { staticClass: "grid-body" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-md-3" }, [
-                _vm._m(0),
+                _c("h2", { staticClass: "grid-title mt-4" }, [
+                  _vm._v(
+                    "\n                                Categorie\n                            "
+                  )
+                ]),
                 _vm._v(" "),
                 _c("hr"),
-                _vm._v(" "),
-                _c("h4", [_vm._v("Categorie")]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -38277,7 +38278,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-9" }, [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
@@ -38363,7 +38364,7 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _vm._m(2, true),
+                            _vm._m(1, true),
                             _vm._v(" "),
                             _c("td", { staticClass: "price text-right" }, [
                               _vm._v(
@@ -38404,7 +38405,7 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _vm._m(3, true),
+                            _vm._m(2, true),
                             _vm._v(" "),
                             _c("td", { staticClass: "price text-right" }, [
                               _vm._v(
@@ -38439,15 +38440,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", { staticClass: "grid-title mt-4" }, [
-      _c("i", { staticClass: "fa fa-filter" }),
-      _vm._v(" Categorie\n                            ")
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
