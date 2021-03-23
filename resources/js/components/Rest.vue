@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-6">
                             <div
-                                class="dish_image "
+                                class="dish_image"
                                 :style="getDishImg(dish)"
                             ></div>
                         </div>

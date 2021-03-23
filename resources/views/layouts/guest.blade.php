@@ -38,7 +38,7 @@
                                         Collabora con noi
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Ristoranti</a>
+                                        <a class="dropdown-item" href="admin">Ristoranti</a>
                                         <a class="dropdown-item" href="#">Lavora con noi</a>
                                         <a class="dropdown-item" href="#">Deliveroo per le Aziende</a>
                                     </div>

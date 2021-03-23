@@ -40,7 +40,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'name' => 'Americano',
-                'description' => 'Be a vegetarian is a big missed steak!',
+                'description' => 'Become a vegetarian is a big missed steak!',
                 'cat_img' => 'img/americano.jpg'
             ],
             [
