@@ -14,19 +14,26 @@ body {
     font-family: "Stratos", sans-serif;
     &::-webkit-scrollbar {
         display: none;
-      }
+    }
 }
 .purple {
     color: #450063;
 }
 
+.bg_rose {
+    background-color: #ffeae4;
+}
+
 .rider {
-    max-height: 400px;
+    max-height: 350px;
 }
 
 .hashtag {
     color: white;
     background-color: #007e8a;
+    position: absolute;
+    top: 82%;
+    width: 100%;
 }
 
 /* .navbar:before {
@@ -37,7 +44,7 @@ body {
     border-top: 230px solid #00ccbc;
     border-right: 3840px solid transparent;
 } */
-.jumbotron{
+.jumbotron {
     position: relative;
 }
 
@@ -47,6 +54,22 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    border-top: 50vh solid $primary;
+    border-top: 20vh solid $primary;
     border-right: 100vw solid transparent;
+}
+
+.shadowed {
+    text-shadow: 2px 2px 2px #000000;
+}
+
+.category-description {
+    display: none;
+}
+
+.card_container:hover .category-name {
+    display: none;
+}
+
+.card_container:hover .category-description {
+    display: block;
 }
