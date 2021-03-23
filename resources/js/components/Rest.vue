@@ -52,17 +52,12 @@ export default {
             if (this.carrello.length == 0) {
                 this.carrello.push(newItem);
             } else {
-                // non puoi aggiungere un piatto da altro risto
-                for (let i = 0; i < this.carrello.length; i++) {
-                    if (this.carrello[i].risto_id != newItem.risto_id) {
-                        alert(
-                            "Non puoi aggiungere un piatto da un altro ristorante"
-                        );
-                        break;
-                    }
-                }
+                // non si può aggiungere piatti da più ristoranti
+                let rist_id = [
+                    ...new Set(this.carrello.map(dish => dish.risto_id))
+                ];
+                rist_id = rist_id[0]; // valore number dell'id risto
 
-                // logica per aggiungere/agguirnare qty piatti nel carrello
                 let ids = this.carrello.map(dish => dish.id);
                 if (ids.includes(newItem.id)) {
                     this.carrello.forEach(element => {
@@ -71,7 +66,11 @@ export default {
                         }
                     });
                 } else {
-                    this.carrello.push(newItem);
+                    newItem.risto_id == rist_id
+                        ? this.carrello.push(newItem)
+                        : alert(
+                              "Non puoi aggiungere piatti da un altro ristorante"
+                          );
                 }
             }
 
