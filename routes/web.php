@@ -22,6 +22,9 @@ Route::get('categories/restaurant/{id}', 'PageController@restaurant')->name('res
 //  Route Resource Controller
 Route::resource('categories', 'CategoryController')->only('show');
 
+//Braintree Payment Controller
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+
 Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
