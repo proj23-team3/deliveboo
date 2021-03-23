@@ -22,7 +22,7 @@
                     <p>{{ dish.name }}</p>
                     <button @click="dish.qty++">Aumenta</button>
                     <p>{{ dish.qty }}</p>
-                    <button @click="dish.qty--">Diminuisci</button>
+                    <button @click="reduce(dish)">Diminuisci</button>
                     <p>{{ dish.qty * dish.price }}€</p>
                 </div>
                 <h2>Totale: {{ getTotal() }}€</h2>
@@ -54,9 +54,9 @@ export default {
             } else {
                 // non si può aggiungere piatti da più ristoranti
                 let rist_id = [
-                    ...new Set(this.carrello.map(dish => dish.risto_id))
+                    ...new Set(this.carrello.map(dish => dish.risto_id)) // metto tutti gli id risto dei piatti in un arr e rimuovo i duplicati... ne avrò quindi sempre uno, quello del primo piatto che finisce nel carrello
                 ];
-                rist_id = rist_id[0]; // valore number dell'id risto
+                rist_id = rist_id[0]; // ricavo il number dell'id risto
 
                 let ids = this.carrello.map(dish => dish.id);
                 if (ids.includes(newItem.id)) {
@@ -76,6 +76,20 @@ export default {
 
             // store del carrello
             localStorage.setItem("carrello", JSON.stringify(this.carrello));
+
+            // cart btn
+            const cartBtn = document.getElementById("cart_btn");
+            if (!cartBtn.classList.contains("text-success")) {
+                cartBtn.classList.add("text-success");
+            }
+        },
+        reduce(dish) {
+            if (dish.qty > 1) {
+                dish.qty--;
+            } else {
+                this.carrello.splice(this.carrello.indexOf(dish), 1);
+                localStorage.setItem("carrello", JSON.stringify(this.carrello));
+            }
         },
         getTotal() {
             let total = 0;

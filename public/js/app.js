@@ -2012,7 +2012,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           return dish.risto_id;
         })));
 
-        rist_id = rist_id[0]; // valore number dell'id risto
+        rist_id = rist_id[0]; // ricavo il number dell'id risto
 
         var ids = this.carrello.map(function (dish) {
           return dish.id;
@@ -2030,7 +2030,21 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       } // store del carrello
 
 
-      localStorage.setItem("carrello", JSON.stringify(this.carrello));
+      localStorage.setItem("carrello", JSON.stringify(this.carrello)); // cart btn
+
+      var cartBtn = document.getElementById("cart_btn");
+
+      if (!cartBtn.classList.contains("text-success")) {
+        cartBtn.classList.add("text-success");
+      }
+    },
+    reduce: function reduce(dish) {
+      if (dish.qty > 1) {
+        dish.qty--;
+      } else {
+        this.carrello.splice(this.carrello.indexOf(dish), 1);
+        localStorage.setItem("carrello", JSON.stringify(this.carrello));
+      }
     },
     getTotal: function getTotal() {
       var total = 0;
@@ -38104,7 +38118,7 @@ var render = function() {
                     {
                       on: {
                         click: function($event) {
-                          dish.qty--
+                          return _vm.reduce(dish)
                         }
                       }
                     },
@@ -50629,7 +50643,20 @@ Vue.component("rest", __webpack_require__(/*! ./components/Rest.vue */ "./resour
 
 var app = new Vue({
   el: "#app"
-});
+}); // gestione cart btn
+
+var cartBtn = document.getElementById("cart_btn");
+
+if (localStorage.carrello) {
+  if (!cartBtn.classList.contains("text-success")) {
+    cartBtn.classList.add("text-success");
+  }
+} // gestione cart btn
+// const cartBtn = document.getElementById("cart_btn");
+// cartBtn.innerHTML = JSON.parse(
+//     localStorage.getItem("carrello")
+// ).length;
+// cartBtn.classList.add("text-success");
 
 /***/ }),
 
