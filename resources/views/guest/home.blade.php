@@ -15,7 +15,7 @@
                             </ol>
                             <div class="carousel-inner rounded">
                                 <div class="carousel-item active">
-                                    <img class="d-block img-fluid" src="{{ asset('img/promo_masterchef.jpg') }}"
+                                    <img class="d-block img-fluid" src="{{ asset('img/promo_boolean.png') }}"
                                         alt="First slide">
                                 </div>
                                 <div class="carousel-item">
@@ -23,7 +23,7 @@
                                         alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid" src="{{ asset('img/promo_cameo.jpg') }}"
+                                    <img class="d-block img-fluid" src="{{ asset('img/promo_cameo.png') }}"
                                         alt="Third slide">
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                         <!-- /Carousel -->
                     </div>
                     <div class="col-md-6 d-flex flex-column justify-content-around">
-                        <img class="rider img-fluid mt-4" src="{{ asset('img/campaign.5a.svg') }}" alt="">
+                        <img class="rider img-fluid mt-4 ml-auto mr-auto" src="{{ asset('img/campaign.5a.png') }}" alt="">
                         <div class="hashtag">
                             <h3 class="text-center p-3 font-weight-bolder rounded">#aCasaTuaConDeliveboo</h3>
                         </div>
