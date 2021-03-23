@@ -38,3 +38,19 @@ Vue.component("rest", require("./components/Rest.vue").default);
 const app = new Vue({
     el: "#app"
 });
+
+// gestione cart btn
+const cartBtn = document.getElementById("cart_btn");
+
+if (localStorage.carrello) {
+    if (!cartBtn.classList.contains("text-success")) {
+        cartBtn.classList.add("text-success");
+    }
+}
+
+// gestione cart btn
+// const cartBtn = document.getElementById("cart_btn");
+// cartBtn.innerHTML = JSON.parse(
+//     localStorage.getItem("carrello")
+// ).length;
+// cartBtn.classList.add("text-success");
