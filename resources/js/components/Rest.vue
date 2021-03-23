@@ -1,32 +1,45 @@
 <template>
-    <div class="container">
-        <h2>Ciao</h2>
-        <h3>{{ restaurant.name }}</h3>
-        <div class="d-flex">
-            <div class="piatti">
-                <div
-                    v-for="dish in restaurant.dishes"
-                    :key="dish.id"
-                    class="shadow rounded m-3 w-50 p-4"
-                >
-                    <h4>{{ dish.dish_name }}</h4>
-                    <p>{{ dish.dish_price }}€</p>
-                    <button @click="addToCart(dish)">
-                        Aggiungi al carrello
-                    </button>
+    <div class="container-fluid">
+        <div class="container ">
+            <div class="row risto_image " :style="getRestauImg()"> 
+            </div>
+            <div class="row py-3">
+                <div class="col-md-6 piatti">
+                    <h3 class="text-uppercase text-black">{{ restaurant.name }}</h3>
+                    <div
+                        v-for="dish in restaurant.dishes"
+                        :key="dish.id"
+                        class="row shadow rounded m-3 p-4">
+                            <div class="col-md-6">
+                                <h4 class="text-uppercase">{{ dish.dish_name }}</h4>
+                                <p>{{ dish.dish_price }}€</p>
+                                <button @click="addToCart(dish)">
+                                    Aggiungi al carrello
+                                </button>
+                            </div>
+                            <div class="col-md-6">
+                                 <div class="dish_image " :style="getDishImg(dish)"> 
+                                     
+                                 </div>  
+                            </div>
+                    </div>
+                </div>
+                <div v-if="carrello.length > 0" class="col-md-6 text-center">
+                    <h3>Carrello</h3>
+                    <div v-for="dish in carrello" :key="dish.id">
+                        <p class="text-uppercase"><strong>{{ dish.name }}</strong></p>
+                        <button @click="dish.qty++"> <i class="fas fa-plus"></i> </button>
+                        <p class="mt-3">{{ dish.qty }}</p>
+                        <button @click="reduce(dish)"> <i class="fas fa-minus"></i> </button>
+                        <p>{{ dish.qty * dish.price }}€</p>
+                    </div>
+                    <h2>Totale: {{ getTotal() }}€</h2>
+                    <!-- attesa route -->
+                    <a v-if="carrello.length > 0" href="#" class="btn btn-lg btn-success text-uppercase"> vai al  checkout </a>
+                    <!-- /attesa route -->
                 </div>
             </div>
-            <div v-if="carrello.length > 0">
-                <h3>Carrello</h3>
-                <div v-for="dish in carrello" :key="dish.id">
-                    <p>{{ dish.name }}</p>
-                    <button @click="dish.qty++">Aumenta</button>
-                    <p>{{ dish.qty }}</p>
-                    <button @click="reduce(dish)">Diminuisci</button>
-                    <p>{{ dish.qty * dish.price }}€</p>
-                </div>
-                <h2>Totale: {{ getTotal() }}€</h2>
-            </div>
+      
         </div>
     </div>
 </template>
@@ -37,7 +50,7 @@ export default {
     data() {
         return {
             restaurant: this.$props.rest[0],
-            carrello: []
+            carrello: [],
         };
     },
     methods: {
@@ -89,6 +102,14 @@ export default {
             } else {
                 this.carrello.splice(this.carrello.indexOf(dish), 1);
                 localStorage.setItem("carrello", JSON.stringify(this.carrello));
+                //cartbtn
+                const cartBtn = document.getElementById("cart_btn");
+                let cart = JSON.parse(localStorage.getItem('carrello'))
+                if (cart.length == 0) {
+                    if(cartBtn.classList.contains('text-success')){
+                        cartBtn.classList.remove("text-success");
+                    }
+                } 
             }
         },
         getTotal() {
@@ -97,7 +118,17 @@ export default {
                 total += item.qty * item.price;
             });
             return total;
-        }
+        },
+        getRestauImg() {
+            return `background-image: url(${this.restaurant.cover})`
+
+        },
+        /* sisemare la unz per img del piatto */
+        getDishImg(dish) {
+            return `background-image: url(${dish.dish_image})`
+        },
+        /* sisemare la unz per img del piatto */
+
     },
     mounted() {
         if (localStorage.carrello) {
@@ -107,4 +138,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.risto_image{
+    height: 33vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dish_image{
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-height: 100px;
+}
+ 
+
+</style>
