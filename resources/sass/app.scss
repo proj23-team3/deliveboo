@@ -16,12 +16,25 @@ body {
         display: none;
     }
 }
+
+a {
+    color: white;
+}
+
 .purple {
     color: #450063;
 }
 
 .bg_rose {
     background-color: #ffeae4;
+}
+
+.bg_grey {
+    background-color: #2e3333;
+}
+
+.bg_lightgrey {
+    background-color: #434848;
 }
 
 .rider {
@@ -72,4 +85,13 @@ body {
 
 .card_container:hover .category-description {
     display: block;
+}
+
+.appstore {
+    max-width: 55%;
+    margin-bottom: 5%;
+}
+
+footer a {
+    font-family: "stratos-lights";
 }
