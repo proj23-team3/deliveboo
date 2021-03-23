@@ -22,7 +22,7 @@
                     <p>{{ dish.name }}</p>
                     <button @click="dish.qty++">Aumenta</button>
                     <p>{{ dish.qty }}</p>
-                    <button @click="dish.qty--">Diminuisci</button>
+                    <button @click="reduce(dish)">Diminuisci</button>
                     <p>{{ dish.qty * dish.price }}€</p>
                 </div>
                 <h2>Totale: {{ getTotal() }}€</h2>
@@ -81,6 +81,14 @@ export default {
             const cartBtn = document.getElementById("cart_btn");
             if (!cartBtn.classList.contains("text-success")) {
                 cartBtn.classList.add("text-success");
+            }
+        },
+        reduce(dish) {
+            if (dish.qty > 1) {
+                dish.qty--;
+            } else {
+                this.carrello.splice(this.carrello.indexOf(dish), 1);
+                localStorage.setItem("carrello", JSON.stringify(this.carrello));
             }
         },
         getTotal() {

@@ -2038,6 +2038,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         cartBtn.classList.add("text-success");
       }
     },
+    reduce: function reduce(dish) {
+      if (dish.qty > 1) {
+        dish.qty--;
+      } else {
+        this.carrello.splice(this.carrello.indexOf(dish), 1);
+        localStorage.setItem("carrello", JSON.stringify(this.carrello));
+      }
+    },
     getTotal: function getTotal() {
       var total = 0;
       this.carrello.forEach(function (item) {
@@ -38110,7 +38118,7 @@ var render = function() {
                     {
                       on: {
                         click: function($event) {
-                          dish.qty--
+                          return _vm.reduce(dish)
                         }
                       }
                     },
