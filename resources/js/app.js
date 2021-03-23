@@ -41,8 +41,8 @@ const app = new Vue({
 
 // gestione cart btn
 const cartBtn = document.getElementById("cart_btn");
-
-if (localStorage.carrello) {
+const storedCart = JSON.parse(localStorage.getItem("carrello"));
+if (storedCart.length > 0) {
     if (!cartBtn.classList.contains("text-success")) {
         cartBtn.classList.add("text-success");
     }
