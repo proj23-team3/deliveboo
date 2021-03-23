@@ -27,14 +27,6 @@
                                         alt="Third slide">
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carousel1_indicator" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
                         </div>
                         <!-- /Carousel -->
                     </div>
@@ -58,7 +50,7 @@
                             <img class="card-img img-fluid" src="{{ asset('img/Chose.gif') }}" alt="Card image"
                                 height="200">
                             <h4 class="card-text text-center font-weight-bolder">
-                                Scegli i tuoi piatti dal nostro menù
+                                Scegli i tuoi piatti dal menù.
                             </h4>
                         </div>
                     </div>
@@ -67,7 +59,7 @@
                             <img class="card-img img-fluid" src="{{ asset('img/Restaurant.gif') }}" alt="Card image"
                                 height="200">
                             <h4 class="card-text text-center font-weight-bolder">
-                                Ordina dal tuo ristorante preferito
+                                Ordina dal tuo ristorante preferito.
                             </h4>
                         </div>
                     </div>
@@ -76,7 +68,7 @@
                             <img class="card-img img-fluid" src="{{ asset('img/Delivery.gif') }}" alt="Card image"
                                 height="200">
                             <h4 class="card-text text-center font-weight-bolder">
-                                I tuoi piatti arriveranno al volo!
+                                Prepara il tavolo, arriviamo!
                             </h4>
                         </div>
                     </div>
@@ -91,7 +83,7 @@
                         <div class="col-md-4">
                             <a class="p-1" href="{{ route('categories.show', ['category' => $category->id]) }}">
                                 <div class="card card_container">
-                                    <img class="img-fluid card-img" src="{{ asset($category->cat_img) }}"
+                                    <img class="img-fluid card-img category_img" src="{{ asset($category->cat_img) }}"
                                         alt="{{ $category->name }}">
                                     <div class="card-img-overlay d-flex">
                                         <div class="my-auto mx-auto text-center category-name shadowed">
