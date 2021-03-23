@@ -15,7 +15,7 @@
                             </ol>
                             <div class="carousel-inner rounded">
                                 <div class="carousel-item active">
-                                    <img class="d-block img-fluid" src="{{ asset('img/promo_masterchef.jpg') }}"
+                                    <img class="d-block img-fluid" src="{{ asset('img/promo_boolean.jpg') }}"
                                         alt="First slide">
                                 </div>
                                 <div class="carousel-item">
@@ -27,11 +27,19 @@
                                         alt="Third slide">
                                 </div>
                             </div>
+                            <a class="carousel-control-prev" href="#carousel1_indicator" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel1_indicator" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                         <!-- /Carousel -->
                     </div>
                     <div class="col-md-6 d-flex flex-column justify-content-around">
-                        <img class="rider img-fluid mt-4" src="{{ asset('img/campaign.5a.svg') }}" alt="">
+                        <img class="rider img-fluid mt-4 ml-auto mr-auto" src="{{ asset('img/campaign.5a.png') }}" alt="">
                         <div class="hashtag">
                             <h3 class="text-center p-3 font-weight-bolder rounded">#aCasaTuaConDeliveboo</h3>
                         </div>
@@ -50,7 +58,7 @@
                             <img class="card-img img-fluid" src="{{ asset('img/Chose.gif') }}" alt="Card image"
                                 height="200">
                             <h4 class="card-text text-center font-weight-bolder">
-                                Scegli i tuoi piatti dal menù.
+                                Scegli i tuoi piatti dal nostro menù
                             </h4>
                         </div>
                     </div>
@@ -59,7 +67,7 @@
                             <img class="card-img img-fluid" src="{{ asset('img/Restaurant.gif') }}" alt="Card image"
                                 height="200">
                             <h4 class="card-text text-center font-weight-bolder">
-                                Ordina dal tuo ristorante preferito.
+                                Ordina dal tuo ristorante preferito
                             </h4>
                         </div>
                     </div>
@@ -68,7 +76,7 @@
                             <img class="card-img img-fluid" src="{{ asset('img/Delivery.gif') }}" alt="Card image"
                                 height="200">
                             <h4 class="card-text text-center font-weight-bolder">
-                                Prepara il tavolo, arriviamo!
+                                I tuoi piatti arriveranno al volo!
                             </h4>
                         </div>
                     </div>
@@ -83,7 +91,7 @@
                         <div class="col-md-4">
                             <a class="p-1" href="{{ route('categories.show', ['category' => $category->id]) }}">
                                 <div class="card card_container">
-                                    <img class="img-fluid card-img category_img" src="{{ asset($category->cat_img) }}"
+                                    <img class="img-fluid card-img" src="{{ asset($category->cat_img) }}"
                                         alt="{{ $category->name }}">
                                     <div class="card-img-overlay d-flex">
                                         <div class="my-auto mx-auto text-center category-name shadowed">
