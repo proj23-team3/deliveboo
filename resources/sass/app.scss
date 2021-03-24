@@ -17,10 +17,6 @@ body {
     }
 }
 
-a {
-    color: white;
-}
-
 .purple {
     color: #450063;
 }
@@ -94,4 +90,17 @@ a {
 
 footer a {
     font-family: "stratos-lights";
+    color: white;
+}
+
+.image {
+    height: 300px;
+}
+
+.image img {
+    max-height: 100%;
+}
+
+.results {
+    min-height: 90vh;
 }
