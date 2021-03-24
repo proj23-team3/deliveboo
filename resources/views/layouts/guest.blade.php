@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Deliveroo - Consegna a domicilio</title>
+    <title>Deliveboo - Consegna a domicilio</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
@@ -31,7 +31,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">
+                            <ul class="navbar-nav ml-auto navbar_nav">
                                 <li class="nav-item dropdown btn btn-light btn-sm">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

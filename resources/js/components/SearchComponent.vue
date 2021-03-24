@@ -14,7 +14,9 @@
                                 <hr />
 
                                 <!-- BEGIN FILTER BY CATEGORY -->
-                                <div class="card_container">
+                                <div
+                                    class="card_container categories_checkboxes"
+                                >
                                     <div
                                         class="checkbox"
                                         v-for="category in categories"
@@ -69,7 +71,7 @@
 
                                 <!-- BEGIN TABLE RESULT -->
                                 <div class="table-responsive">
-                                    <table class="table table-hover">
+                                    <table class="table table-striped t_hover">
                                         <tbody>
                                             <tr
                                                 v-for="rest in filteredRests"
@@ -98,19 +100,16 @@
                                                     <h5>{{ rest.address }}</h5>
                                                     <p>
                                                         <i
-                                                            class="fa fa-star"
+                                                            class="fa fa-star purple"
                                                         ></i
                                                         ><i
-                                                            class="fa fa-star"
+                                                            class="fa fa-star purple"
                                                         ></i
                                                         ><i
-                                                            class="fa fa-star"
+                                                            class="fa fa-star purple"
                                                         ></i
                                                         ><i
-                                                            class="fa fa-star"
-                                                        ></i
-                                                        ><i
-                                                            class="fa fa-star-half-o"
+                                                            class="fa fa-star purple"
                                                         ></i>
                                                     </p>
                                                     <p>
@@ -160,19 +159,16 @@
                                                     </h5>
                                                     <p>
                                                         <i
-                                                            class="fa fa-star"
+                                                            class="fa fa-star purple"
                                                         ></i
                                                         ><i
-                                                            class="fa fa-star"
+                                                            class="fa fa-star purple"
                                                         ></i
                                                         ><i
-                                                            class="fa fa-star"
+                                                            class="fa fa-star purple"
                                                         ></i
                                                         ><i
-                                                            class="fa fa-star"
-                                                        ></i
-                                                        ><i
-                                                            class="fa fa-star-half-o"
+                                                            class="fa fa-star purple"
                                                         ></i>
                                                     </p>
                                                     <p>
