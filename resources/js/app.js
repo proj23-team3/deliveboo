@@ -40,11 +40,15 @@ const app = new Vue({
 });
 
 // gestione cart btn
-const cartBtn = document.getElementById("cart_btn");
-const storedCart = JSON.parse(localStorage.getItem("carrello"));
-if (storedCart.length > 0) {
-    if (!cartBtn.classList.contains("text-success")) {
-        cartBtn.classList.add("text-success");
+if (document.getElementById("cart_btn") != null) {
+    if (localStorage.carrello) {
+        const cartBtn = document.getElementById("cart_btn");
+        const storedCart = JSON.parse(localStorage.getItem("carrello"));
+        if (storedCart.length > 0) {
+            if (!cartBtn.classList.contains("text-success")) {
+                cartBtn.classList.add("text-success");
+            }
+        }
     }
 }
 

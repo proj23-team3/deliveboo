@@ -51,7 +51,7 @@
                                     <i class="fas fa-minus"></i>
                                 </a>
                                 <span class="px-3">{{ dish.qty }}</span>
-                                <a class="btn_rounded" @click="dish.qty++">
+                                <a class="btn_rounded" @click="increase(dish)">
                                     <i class="fas fa-plus"></i>
                                 </a>
                             </div>
@@ -131,6 +131,10 @@ export default {
                 cartBtn.classList.add("text-success");
             }
         },
+        increase(dish) {
+            dish.qty++;
+            localStorage.setItem("carrello", JSON.stringify(this.carrello));
+        },
         reduce(dish) {
             if (dish.qty > 1) {
                 dish.qty--;
@@ -155,11 +159,19 @@ export default {
             return total;
         },
         getRestauImg() {
-            return `background-image: url(/storage/${this.restaurant.cover})`;
+            if (this.restaurant.cover.indexOf("cover") >= 0) {
+                return `background-image: url(/storage/${this.restaurant.cover})`;
+            } else {
+                return `background-image: url(${this.restaurant.cover})`;
+            }
         },
         /* sisemare la unz per img del piatto */
         getDishImg(dish) {
-            return `background-image: url(/storage/${dish.dish_image})`;
+            if (dish.dish_image.indexOf("dishes") >= 0) {
+                return `background-image: url(/storage/${dish.dish_image})`;
+            } else {
+                return `background-image: url(${dish.dish_image})`;
+            }
         }
         /* sisemare la unz per img del piatto */
     },
