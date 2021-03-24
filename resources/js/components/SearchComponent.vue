@@ -8,7 +8,7 @@
                         <div class="row">
                             <!-- BEGIN FILTERS -->
                             <div class="col-md-3">
-                                <h2 class="grid-title mt-4">
+                                <h2 class="grid-title mt-4 font-weight-bolder">
                                     Categorie
                                 </h2>
                                 <hr />
@@ -35,9 +35,9 @@
                             </div>
                             <!-- END FILTERS -->
                             <!-- BEGIN RESULT -->
-                            <div class="col-md-9">
-                                <h2 class="mt-4">
-                                    <i class="fa fa-file-o"></i> Risultati
+                            <div class="col-md-9 results">
+                                <h2 class="mt-4 font-weight-bolder">
+                                    Risultati
                                 </h2>
                                 <hr />
                                 <!-- BEGIN SEARCH INPUT -->
@@ -61,7 +61,7 @@
                                     </span>
                                 </form>
                                 <!-- END SEARCH INPUT -->
-                                <p>
+                                <p class="mt-2">
                                     Ecco i risultati relativi alla tua ricerca
                                 </p>
 
@@ -77,25 +77,27 @@
                                             >
                                                 <td class="image">
                                                     <img
+                                                        class="img-fluid"
                                                         :src="
                                                             getRestImg(
                                                                 rest.cover
                                                             )
                                                         "
                                                         alt=""
-                                                        height="300"
                                                     />
                                                 </td>
 
-                                                <td class="product">
-                                                    <strong>{{
-                                                        rest.name
-                                                    }}</strong
-                                                    ><br />{{ rest.address }}
-                                                </td>
-                                                <td class="rate text-right">
-                                                    <span
-                                                        ><i
+                                                <td
+                                                    class="product text-right d-flex flex-column justify-content-around"
+                                                >
+                                                    <h2
+                                                        class="font-weight-bolder"
+                                                    >
+                                                        {{ rest.name }}
+                                                    </h2>
+                                                    <h5>{{ rest.address }}</h5>
+                                                    <p>
+                                                        <i
                                                             class="fa fa-star"
                                                         ></i
                                                         ><i
@@ -109,16 +111,17 @@
                                                         ></i
                                                         ><i
                                                             class="fa fa-star-half-o"
-                                                        ></i
-                                                    ></span>
-                                                </td>
-                                                <td class="price text-right">
-                                                    Consegna
-                                                    {{ rest.shipping_costs }}
-                                                    €
-                                                </td>
-                                                <td>
+                                                        ></i>
+                                                    </p>
+                                                    <p>
+                                                        Costi di consegna:
+                                                        {{
+                                                            rest.shipping_costs
+                                                        }}
+                                                        €
+                                                    </p>
                                                     <a
+                                                        class="btn btn-primary"
                                                         :href="
                                                             `restaurant/${rest.id}`
                                                         "
@@ -134,27 +137,29 @@
                                             >
                                                 <td class="image">
                                                     <img
+                                                        class="img-fluid"
                                                         :src="
                                                             getRestImg(
                                                                 searched.cover
                                                             )
                                                         "
                                                         alt=""
-                                                        height="300"
                                                     />
                                                 </td>
 
-                                                <td class="product">
-                                                    <strong>{{
-                                                        searched.name
-                                                    }}</strong
-                                                    ><br />{{
-                                                        searched.address
-                                                    }}
-                                                </td>
-                                                <td class="rate text-right">
-                                                    <span
-                                                        ><i
+                                                <td
+                                                    class="product text-right d-flex flex-column justify-content-around"
+                                                >
+                                                    <h2
+                                                        class="font-weight-bolder"
+                                                    >
+                                                        {{ searched.name }}
+                                                    </h2>
+                                                    <h5>
+                                                        {{ searched.address }}
+                                                    </h5>
+                                                    <p>
+                                                        <i
                                                             class="fa fa-star"
                                                         ></i
                                                         ><i
@@ -168,18 +173,17 @@
                                                         ></i
                                                         ><i
                                                             class="fa fa-star-half-o"
-                                                        ></i
-                                                    ></span>
-                                                </td>
-                                                <td class="price text-right">
-                                                    Consegna
-                                                    {{
-                                                        searched.shipping_costs
-                                                    }}
-                                                    €
-                                                </td>
-                                                <td>
+                                                        ></i>
+                                                    </p>
+                                                    <p>
+                                                        Costi di consegna:
+                                                        {{
+                                                            searched.shipping_costs
+                                                        }}
+                                                        €
+                                                    </p>
                                                     <a
+                                                        class="btn btn-primary"
                                                         :href="
                                                             `restaurant/${searched.id}`
                                                         "
