@@ -2416,10 +2416,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   props: ["choose_cat", "rests"],
   data: function data() {
@@ -39050,7 +39046,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "card_container" },
+                  { staticClass: "card_container categories_checkboxes" },
                   _vm._l(_vm.categories, function(category) {
                     return _c(
                       "div",
@@ -39171,7 +39167,7 @@ var render = function() {
                 _c("div", { staticClass: "padding" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "table-responsive" }, [
-                  _c("table", { staticClass: "table table-hover" }, [
+                  _c("table", { staticClass: "table table-striped t_hover" }, [
                     _c(
                       "tbody",
                       [
@@ -39311,11 +39307,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star-half-o" })
+      _c("i", { staticClass: "fa fa-star purple" }),
+      _c("i", { staticClass: "fa fa-star purple" }),
+      _c("i", { staticClass: "fa fa-star purple" }),
+      _c("i", { staticClass: "fa fa-star purple" })
     ])
   },
   function() {
@@ -39323,11 +39318,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star" }),
-      _c("i", { staticClass: "fa fa-star-half-o" })
+      _c("i", { staticClass: "fa fa-star purple" }),
+      _c("i", { staticClass: "fa fa-star purple" }),
+      _c("i", { staticClass: "fa fa-star purple" }),
+      _c("i", { staticClass: "fa fa-star purple" })
     ])
   }
 ]
