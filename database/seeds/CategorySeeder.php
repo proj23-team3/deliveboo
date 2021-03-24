@@ -19,11 +19,6 @@ class CategorySeeder extends Seeder
                 'cat_img' => 'img/pizza_image.jpg'
             ],
             [
-                'name' => 'Sushi',
-                'description' => 'Voglia di Maki?',
-                'cat_img' => 'img/sushi.jpg'
-            ],
-            [
                 'name' => 'Italiano',
                 'description' => 'Pesce, Pasta, Carne, a te la scelta',
                 'cat_img' => 'img/italiano.jpg'
@@ -49,24 +44,9 @@ class CategorySeeder extends Seeder
                 'cat_img' => 'img/indiano.jpg'
             ],
             [
-                'name' => 'Greco',
-                'description' => 'Moussaka che passione!',
-                'cat_img' => 'img/greco.jpg'
-            ],
-            [
-                'name' => 'Afghano',
-                'description' => 'Sapori ed emozioni di un paese lontano',
-                'cat_img' => 'img/afghano.jpg'
-            ],
-            [
                 'name' => 'Fusion',
                 'description' => 'Moderna, curiosa ed affascinante, scegli il tuo mix',
                 'cat_img' => 'img/fusion.jpg'
-            ],
-            [
-                'name' => 'Siriano',
-                'description' => 'La Siria in Tavola',
-                'cat_img' => 'img/siriano.jpg'
             ],
             [
                 'name' => 'Brasiliano',
@@ -77,11 +57,6 @@ class CategorySeeder extends Seeder
                 'name' => 'Cinese',
                 'description' => 'I migliori ristoranti Cinesi ad un click da te',
                 'cat_img' => 'img/cinese.jpg'
-            ],
-            [
-                'name' => 'Dessert',
-                'description' => 'La giusta conclusione di ogni pasto',
-                'cat_img' => 'img/dessert.jpg'
             ]
         ];
 
