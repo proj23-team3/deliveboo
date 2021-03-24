@@ -155,11 +155,11 @@ export default {
             return total;
         },
         getRestauImg() {
-            return `background-image: url(${this.restaurant.cover})`;
+            return `background-image: url(/storage/${this.restaurant.cover})`;
         },
         /* sisemare la unz per img del piatto */
         getDishImg(dish) {
-            return `background-image: url(${dish.dish_image})`;
+            return `background-image: url(/storage/${dish.dish_image})`;
         }
         /* sisemare la unz per img del piatto */
     },
