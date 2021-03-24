@@ -2060,6 +2060,27 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["rest", "route"],
   data: function data() {
@@ -6888,7 +6909,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".risto_image[data-v-e0fa6e82] {\n  height: 33vh;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n.dish_image[data-v-e0fa6e82] {\n  background-size: contain;\n  background-repeat: no-repeat;\n  max-height: 100px;\n}", ""]);
+exports.push([module.i, ".risto_image[data-v-e0fa6e82] {\n  height: 33vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.dish_image[data-v-e0fa6e82] {\n  background-size: contain;\n  background-repeat: no-repeat;\n  min-height: 100px;\n}\n.btn_rounded[data-v-e0fa6e82] {\n  padding: 0 0.3rem;\n  border-radius: 100%;\n  background: transparent;\n  color: #00ccbc;\n  border: 1px solid #00ccbc;\n}\n.btn_rounded[data-v-e0fa6e82]:hover {\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -38791,7 +38812,7 @@ var render = function() {
     _c("div", { staticClass: "container " }, [
       _c("div", { staticClass: "row risto_image ", style: _vm.getRestauImg() }),
       _vm._v(" "),
-      _c("div", { staticClass: "row py-3" }, [
+      _c("div", { staticClass: "row m-1 p-3" }, [
         _c(
           "div",
           { staticClass: "col-md-6 piatti" },
@@ -38800,14 +38821,14 @@ var render = function() {
               _vm._v(
                 "\n                    " +
                   _vm._s(_vm.restaurant.name) +
-                  "\n                "
+                  " menu:\n                "
               )
             ]),
             _vm._v(" "),
             _vm._l(_vm.restaurant.dishes, function(dish) {
               return _c(
                 "div",
-                { key: dish.id, staticClass: "row shadow rounded m-3 p-4" },
+                { key: dish.id, staticClass: "row shadow rounded p-4" },
                 [
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("h4", { staticClass: "text-uppercase" }, [
@@ -38819,6 +38840,7 @@ var render = function() {
                     _c(
                       "button",
                       {
+                        staticClass: "btn btn-primary",
                         on: {
                           click: function($event) {
                             return _vm.addToCart(dish)
@@ -38835,7 +38857,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("div", {
-                      staticClass: "dish_image",
+                      staticClass: "dish_image ",
                       style: _vm.getDishImg(dish)
                     })
                   ])
@@ -38849,73 +38871,110 @@ var render = function() {
         _vm.carrello.length > 0
           ? _c(
               "div",
-              { staticClass: "col-md-6 text-center" },
+              { staticClass: "offset-md-1 col-md-5 text-center shadow" },
               [
-                _c("h3", [_vm._v("Carrello")]),
+                _vm._m(0),
                 _vm._v(" "),
-                _vm._l(_vm.carrello, function(dish) {
-                  return _c("div", { key: dish.id }, [
-                    _c("p", { staticClass: "text-uppercase" }, [
-                      _c("strong", [_vm._v(_vm._s(dish.name))])
-                    ]),
+                _c(
+                  "div",
+                  { staticClass: "row card py-4" },
+                  [
+                    _vm._l(_vm.carrello, function(dish) {
+                      return _c(
+                        "div",
+                        { key: dish.id, staticClass: "d-flex col-xs-12" },
+                        [
+                          _c("div", { staticClass: "col-md-4" }, [
+                            _c("p", { staticClass: "text-uppercase" }, [
+                              _vm._v(_vm._s(dish.name))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-4" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn_rounded",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.reduce(dish)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-minus" })]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "px-3" }, [
+                              _vm._v(_vm._s(dish.qty))
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn_rounded",
+                                on: {
+                                  click: function($event) {
+                                    dish.qty++
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fas fa-plus" })]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-md-4" }, [
+                            _c("p", [
+                              _vm._v(_vm._s(dish.qty * dish.price) + "€")
+                            ])
+                          ])
+                        ]
+                      )
+                    }),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            dish.qty++
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-plus" })]
-                    ),
+                    _c("hr"),
                     _vm._v(" "),
-                    _c("p", { staticClass: "mt-3" }, [
-                      _vm._v(_vm._s(dish.qty))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        on: {
-                          click: function($event) {
-                            return _vm.reduce(dish)
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-minus" })]
-                    ),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(dish.qty * dish.price) + "€")])
-                  ])
-                }),
-                _vm._v(" "),
-                _c("h2", [_vm._v("Totale: " + _vm._s(_vm.getTotal()) + "€")]),
-                _vm._v(" "),
-                _vm.carrello.length > 0
-                  ? _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-lg btn-success text-uppercase",
-                        attrs: { href: _vm.route }
-                      },
-                      [
-                        _vm._v(
-                          "\n                    vai al checkout\n                "
-                        )
-                      ]
-                    )
-                  : _vm._e()
-              ],
-              2
+                    _c("div", { staticClass: "col-xs-12" }, [
+                      _c("h2", [
+                        _vm._v("Totale: " + _vm._s(_vm.getTotal()) + "€")
+                      ]),
+                      _vm._v(" "),
+                      _vm.carrello.length > 0
+                        ? _c(
+                            "a",
+                            {
+                              staticClass:
+                                "btn btn-lg btn-success text-uppercase",
+                              attrs: { href: _vm.route }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            vai al checkout\n                        "
+                              )
+                            ]
+                          )
+                        : _vm._e()
+                    ])
+                  ],
+                  2
+                )
+              ]
             )
           : _vm._e()
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h3", { staticClass: "text-uppercase text-right" }, [
+      _c("i", { staticClass: "fas fa-shopping-cart" }),
+      _vm._v(" Carrello\n                ")
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -51720,8 +51779,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/antoniolovotrico/Documents/Boolean/classe_23/laravel/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/antoniolovotrico/Documents/Boolean/classe_23/laravel/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
