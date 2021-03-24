@@ -77,7 +77,11 @@
                                             >
                                                 <td class="image">
                                                     <img
-                                                        :src="rest.cover"
+                                                        :src="
+                                                            getRestImg(
+                                                                rest.cover
+                                                            )
+                                                        "
                                                         alt=""
                                                         height="300"
                                                     />
@@ -130,7 +134,11 @@
                                             >
                                                 <td class="image">
                                                     <img
-                                                        :src="searched.cover"
+                                                        :src="
+                                                            getRestImg(
+                                                                searched.cover
+                                                            )
+                                                        "
                                                         alt=""
                                                         height="300"
                                                     />
@@ -257,6 +265,14 @@ export default {
                 .catch(function(error) {
                     console.log(error);
                 });
+        },
+        getRestImg(img_path) {
+            console.log(img_path);
+            if (img_path.indexOf("cover") >= 0) {
+                return `/storage/${img_path}`;
+            } else {
+                return `${img_path}`;
+            }
         }
     }
 };
