@@ -2158,12 +2158,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return total;
     },
     getRestauImg: function getRestauImg() {
-      return "background-image: url(".concat(this.restaurant.cover, ")");
+      return "background-image: url(/storage/".concat(this.restaurant.cover, ")");
     },
 
     /* sisemare la unz per img del piatto */
     getDishImg: function getDishImg(dish) {
-      return "background-image: url(".concat(dish.dish_image, ")");
+      return "background-image: url(/storage/".concat(dish.dish_image, ")");
     }
     /* sisemare la unz per img del piatto */
 
