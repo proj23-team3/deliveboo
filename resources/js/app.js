@@ -28,6 +28,7 @@ Vue.component(
     require("./components/SearchComponent.vue").default
 );
 Vue.component("rest", require("./components/Rest.vue").default);
+Vue.component("cart", require("./components/Cart.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

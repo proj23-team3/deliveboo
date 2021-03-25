@@ -19,6 +19,8 @@
     <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
 
     {{-- style --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
@@ -26,46 +28,52 @@
 <body>
 
     <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required="">
+                    </div>
 
-        <p>CHECKOUT</p>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email"
+                            required="">
+                    </div>
 
-        <form action="" method="post">
-            <div class="form-group">
-                <label for="name">Nome:</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required="">
+                    <div class="form-group">
+                        <label for="telephone">Telefono:</label>
+                        <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Telefono"
+                            required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Indirizzo di consegna:</label>
+                        <input type="text" name="address" id="address" class="form-control"
+                            placeholder="Indirizzo di consegna" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery_date">Data di consegna:</label>
+                        <input type="date" name="delivery_date" id="delivery_date" class="form-control" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery_time">Orario di consegna:</label>
+                        <input type="time" name="delivery_time" id="delivery_time" class="form-control" required="">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-success btn-submit">Conferma i dati</button>
+                    </div>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Email" required="">
+            <div class="col-md-6" id="app">
+                <cart />
             </div>
+        </div>
 
-            <div class="form-group">
-                <label for="telephone">Telefono:</label>
-                <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Telefono"
-                    required="">
-            </div>
-
-            <div class="form-group">
-                <label for="address">Indirizzo di consegna:</label>
-                <input type="text" name="address" id="address" class="form-control" placeholder="Indirizzo di consegna"
-                    required="">
-            </div>
-
-            <div class="form-group">
-                <label for="delivery_date">Data di consegna:</label>
-                <input type="date" name="delivery_date" id="delivery_date" class="form-control" required="">
-            </div>
-
-            <div class="form-group">
-                <label for="delivery_time">Orario di consegna:</label>
-                <input type="time" name="delivery_time" id="delivery_time" class="form-control" required="">
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-success btn-submit">Conferma i dati</button>
-            </div>
-        </form>
 
         {{-- braintree dropin --}}
         <div class="col-md-8 col-md-offset-2">
@@ -115,7 +123,7 @@
                 risto_id = item.risto_id;
             })
         }
-        // console.log(tot, risto_id);
+        console.log(tot, risto_id);
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
@@ -182,5 +190,6 @@
     });
 
 </script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 </html>
