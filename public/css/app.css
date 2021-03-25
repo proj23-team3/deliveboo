@@ -11105,6 +11105,19 @@ footer a {
   min-height: 90vh;
 }
 
+.image_wrapper {
+  max-height: 170px;
+  overflow: hidden;
+}
+
+.image_wrapper img {
+  transform: translateY(-15%);
+}
+
+textarea:focus {
+  outline: 1px solid #00ccbc;
+}
+
 @media screen and (max-width: 768px) {
   .navbar_nav li {
     margin: 5px;

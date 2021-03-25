@@ -23,7 +23,7 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-lg navbar-light ">
                         <a class="navbar-brand" href="/">
-                            <img src="{{ asset('img/logo_white.png') }}" alt="" height="34">
+                            <img src="{{ asset('img/logo_white.png') }}" alt="" height="45">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
