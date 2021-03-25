@@ -11032,6 +11032,20 @@ body::-webkit-scrollbar {
   background-color: #434848;
 }
 
+.cart_button {
+  position: relative;
+}
+
+.cart_button .cart_badge {
+  color: white;
+  padding: 1px 6px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: red;
+  border-radius: 100%;
+}
+
 .rider {
   max-width: 245px;
 }
@@ -11043,15 +11057,6 @@ body::-webkit-scrollbar {
   top: 82%;
   width: 92%;
 }
-
-/* .navbar:before {
-    content: "";
-    position: absolute;
-    right: -90%;
-    top: 5vh;
-    border-top: 230px solid #00ccbc;
-    border-right: 3840px solid transparent;
-} */
 
 .jumbotron {
   position: relative;
@@ -11097,10 +11102,6 @@ footer a {
   height: 300px;
 }
 
-.image img {
-  max-height: 100%;
-}
-
 .results {
   min-height: 90vh;
 }
@@ -11118,7 +11119,7 @@ textarea:focus {
   outline: 1px solid #00ccbc;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 990px) {
   .navbar_nav li {
     margin: 5px;
   }
