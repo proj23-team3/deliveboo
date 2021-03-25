@@ -105,6 +105,18 @@ footer a {
     min-height: 90vh;
 }
 
+.image_wrapper {
+    max-height: 170px;
+    overflow: hidden;
+    img {
+        transform: translateY(-15%);
+    }
+}
+
+textarea:focus {
+    outline: 1px solid $primary;
+}
+
 @media screen and (max-width: 768px) {
     .navbar_nav li {
         margin: 5px;
