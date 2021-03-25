@@ -44,7 +44,8 @@
                                     </div>
                                 </li>
                                 <li class="nav-item btn btn-light btn-sm mx-1">
-                                    <a class="nav-link" id="cart_btn" href="#"><i class="fas fa-shopping-cart"></i><span
+                                    <a class="nav-link cart_button" id="cart_btn" href="#"><i
+                                            class="fas fa-shopping-cart "></i><span class="cart_badge">2</span><span
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item btn btn-light btn-sm">
@@ -72,10 +73,6 @@
                                     <li><a class="text-white" href="#">Chi siamo</a></li>
                                     <li><a class="text-white" href="#">Pressroom</a></li>
                                     <li><a class="text-white" href="#">Il nostro blog</a></li>
-                                    <li><a class="text-white" href="#">Programmazione</a></li>
-                                    <li><a class="text-white" href="#">Design</a></li>
-                                    <li><a class="text-white" href="#">Lavora con noi</a></li>
-                                    <li><a class="text-white" href="#">Diventa nostro partner</a></li>
                                 </ul>
                             </div>
                         </div>
