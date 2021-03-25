@@ -40,7 +40,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="admin">Ristoranti</a>
                                         <a class="dropdown-item" href="#">Lavora con noi</a>
-                                        <a class="dropdown-item" href="#">Deliveroo per le Aziende</a>
+                                        <a class="dropdown-item" href="#">Deliveboo per le Aziende</a>
                                     </div>
                                 </li>
                                 <li class="nav-item btn btn-light btn-sm mx-1">
@@ -67,7 +67,7 @@
                                 style="background : hsla(0,0%,100%,.1); height: 100%; border-radius: 3px;">
                                 <ul class="text-white card-body list-unstyled block p-4">
                                     <li>
-                                        <h5>Scopri Deliveroo</h5>
+                                        <h5>Scopri Deliveboo</h5>
                                     </li>
                                     <li><a class="text-white" href="#">Investitori</a></li>
                                     <li><a class="text-white" href="#">Chi siamo</a></li>
@@ -108,7 +108,7 @@
                                 style="background : hsla(0,0%,100%,.1); height: 100%; border-radius: 3px;">
                                 <ul class="text-white card-body list-unstyled block p-4">
                                     <li>
-                                        <h5>Porta Deliveroo con te</h5>
+                                        <h5>Porta Deliveboo con te</h5>
                                     </li>
                                     <li><a href="#">
                                             <img class="appstore" src="{{ asset('img/App_Store_Badge.svg') }}" alt="">
@@ -123,13 +123,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 p-3">
-                            <a href="#"><i class="fab fa-facebook mr-2"></i></a>
-                            <a href="#"><i class="fab fa-twitter mr-2"></i></a>
-                            <a href="#"><i class="fab fa-instagram mr-2"></i></a>
+                            <a href="#" class="facebook"><i class="fab fa-facebook mr-2"></i></a>
+                            <a href="#" class="twitter"><i class="fab fa-twitter mr-2"></i></a>
+                            <a href="#" class="instagram"><i class="fab fa-instagram mr-2"></i></a>
                         </div>
                         <!-- Copyright -->
                         <div class="col-md-6 text-right p-3 text-white">
-                            © 2021 Copyright:
+                            &copy; 2021 Copyright:
                             <a class="text-white" href="#">Team 3 Classe #23</a>
                         </div>
                         <!-- Copyright -->
