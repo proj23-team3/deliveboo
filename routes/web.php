@@ -25,6 +25,9 @@ Route::resource('categories', 'CategoryController')->only('show');
 //Braintree Payment Controller
 Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
 
+// post order data
+Route::post('ajaxRequest', 'PaymentsController@ajaxRequestPost');
+
 // Route Checkout Controller
 Route::get('checkout', 'PageController@checkout')->name('checkout');
 

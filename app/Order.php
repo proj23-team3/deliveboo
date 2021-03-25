@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Order extends Model
 {
+    protected $fillable = ['customer_name', 'customer_email', 'customer_telephone', 'customer_address', 'delivery_date', 'delivery_time', 'amount', 'user_id', 'payment_id'];
+
     /**
      * Get the user that owns the order
      *
