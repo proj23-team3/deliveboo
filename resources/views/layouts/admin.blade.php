@@ -93,8 +93,8 @@
                             tuo menu</a>
                     </li>
                     <li class="nav-item">
-                        {{-- questo punterà al menu con la lista piatti e bottone per aggiungere un piatto --}}
-                        <a class="nav-link text-muted" href="#">I tuoi ordini</a>
+                        {{-- questo punterà al menu con la lista ordini e bottone per mostrare statistiche --}}
+                        <a class="nav-link {{ Route::is('admin.orders.*') ? 'btn btn-primary' : 'text-muted' }}" href="{{ route('admin.orders.index') }}">I tuoi ordini</a>
                     </li>
                 </ul>
             </nav>
