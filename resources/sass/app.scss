@@ -93,9 +93,20 @@ body {
     margin-bottom: 5%;
 }
 
-footer a {
+footer {
+    a {
     font-family: "stratos-lights";
     color: white;
+    }
+    .facebook:hover {
+        color: #3b5998;
+    }
+    .twitter:hover {
+        color: #00acee;
+    }
+    .instagram:hover {
+        color: #C13584;
+    }
 }
 
 .image {
