@@ -138,6 +138,7 @@ export default {
         reduce(dish) {
             if (dish.qty > 1) {
                 dish.qty--;
+                localStorage.setItem("carrello", JSON.stringify(this.carrello));
             } else {
                 this.carrello.splice(this.carrello.indexOf(dish), 1);
                 localStorage.setItem("carrello", JSON.stringify(this.carrello));
