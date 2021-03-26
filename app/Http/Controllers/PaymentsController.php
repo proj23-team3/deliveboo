@@ -6,6 +6,8 @@ use App\Order;
 use Braintree;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentsController extends Controller
 {
@@ -41,6 +43,11 @@ class PaymentsController extends Controller
         ]);
 
         Order::create($validated);
+
+        // Creare l'oggetto mail da inserire nel parametro da passare al markup mailable
+        $mail = Order::create($validated);
+
+        Mail::to($request->customer_email)->send(new ContactMail($mail));
 
         $response = array(
             'status' => 'success',
