@@ -19,8 +19,7 @@
     <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
 
     {{-- style --}}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
-        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
@@ -33,25 +32,22 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="name">Nome:</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Nome" required="">
+                        <input type="text" name="customer_name" id="name" class="form-control" placeholder="Nome" required="">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email"
-                            required="">
+                        <input type="email" name="customer_email" id="email" class="form-control" placeholder="Email" required="">
                     </div>
 
                     <div class="form-group">
                         <label for="telephone">Telefono:</label>
-                        <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Telefono"
-                            required="">
+                        <input type="text" name="customer_telephone" id="telephone" class="form-control" placeholder="Telefono" required="">
                     </div>
 
                     <div class="form-group">
                         <label for="address">Indirizzo di consegna:</label>
-                        <input type="text" name="address" id="address" class="form-control"
-                            placeholder="Indirizzo di consegna" required="">
+                        <input type="text" name="customer_address" id="address" class="form-control" placeholder="Indirizzo di consegna" required="">
                     </div>
 
                     <div class="form-group">
@@ -61,7 +57,7 @@
 
                     <div class="form-group">
                         <label for="delivery_time">Orario di consegna:</label>
-                        <input type="time" name="delivery_time" id="delivery_time" class="form-control" required="">
+                        <input type="time" name="delivery_time" id="delivery_time" class="form-control" step="900" required="">
                     </div>
 
                     <div class="form-group">
@@ -86,6 +82,33 @@
 </body>
 
 <script>
+    document.getElementById('delivery_date').valueAsDate = new Date();
+    /*  document.getElementById('delivery_time').valueAsTime = new Date().getHours(); */
+    console.dir(Date)
+
+    let nowHour = new Date().getHours().toString();
+    console.log(nowHour)
+    let nowMinute = new Date().getMinutes().toString();
+    console.log(nowMinute)
+
+
+
+
+    /* let nowMinute = new Date() */
+
+
+    /*  
+        let nowTime = new Date().getHours();
+        let lunch = 13;
+        let dinner = 18;
+        if (nowTime <= lunch) {
+            document.getElementById('delivery_time').value = '13:00';
+        } else if (nowTime > lunch && nowTime <= dinner) {
+            //settare il valore input
+            document.getElementById('delivery_time').value = '18:00';
+        } */
+
+
     $.ajaxSetup({
 
         headers: {
@@ -100,14 +123,15 @@
 
         e.preventDefault();
 
-        var name = $("input[name=name]").val();
 
-        var email = $("input[name=email]").val();
+        var name = $("input[name=customer_name]").val();
 
-        var telephone = $("input[name=telephone]").val();
+        var email = $("input[name=customer_email]").val();
+
+        var telephone = $("input[name=customer_telephone]").val();
         // console.log(telephone);
 
-        var address = $("input[name=address]").val();
+        var address = $("input[name=customer_address]").val();
 
         var delivery_date = $("input[name=delivery_date]").val();
 
@@ -123,7 +147,7 @@
                 risto_id = item.risto_id;
             })
         }
-        console.log(tot, risto_id);
+        /* console.log(tot, risto_id); */
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
@@ -165,16 +189,17 @@
                     button.addEventListener('click', function() {
                         instance.requestPaymentMethod(function(err, payload) {
                             payload.tot = tot;
-                            $.get('{{ route('payment.process') }}', {
-                                payload
-                            }, function(response) {
-                                console.log(response);
-                                if (response.success) {
-                                    alert('Payment successful!');
-                                } else {
-                                    alert('Payment failed');
-                                }
-                            }, 'json');
+                            $.get('{{ route("payment.process") }}', {
+                                    payload
+                                },
+                                function(response) {
+                                    console.log(response);
+                                    if (response.success) {
+                                        alert('Payment successful!');
+                                    } else {
+                                        alert('Payment failed');
+                                    }
+                                }, 'json');
                         });
                     });
                 });
@@ -182,13 +207,29 @@
             },
 
             error: function(err) {
-                console.log(err.responseJSON.errors);
                 // logica errori
+                /* VERIONE 1  limitazione sugli input di tipo data e ora*/
+                /* console.dir(err); */
+                /* const err; */
+                /* VERIONE 2 */
+                const errors = err.responseJSON.errors
+                console.dir(err.responseJSON.errors);
+                /* console.log(key); */
+                for (const key in errors) {
+                    if (errors.hasOwnProperty.call(errors, key)) {
+                        const element = errors[key];
+                        let errorMsg = element.toString();
+                        let i = document.getElementsByName(`${key}`);
+                        let catchError = i[0].getAttribute('name');
+                        if (key == catchError) {
+                            i[0].style.border = '1px solid red';
+                            i[0].classList.add('is-invalid');
+                        }
+                    }
+                }
             }
-
         });
     });
-
 </script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 
