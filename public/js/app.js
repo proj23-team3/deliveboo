@@ -39119,7 +39119,24 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("div", { staticClass: "col-md-12 col-lg-4" }, [
+              _c("div", { staticClass: "summary" }, [
+                _c("h3", [_vm._v("Summary")]),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._m(2),
+                _vm._v(" "),
+                _c("div", { staticClass: "summary-item" }, [
+                  _c("span", { staticClass: "text" }, [_vm._v("Total")]),
+                  _c("span", { staticClass: "price" }, [
+                    _vm._v(" " + _vm._s(_vm.getTotal()) + " €")
+                  ])
+                ])
+              ])
+            ])
           ])
         ])
       ])
@@ -39130,30 +39147,27 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12 col-lg-4" }, [
-      _c("div", { staticClass: "summary" }, [
-        _c("h3", [_vm._v("Summary")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "summary-item" }, [
-          _c("span", { staticClass: "text" }, [_vm._v("Subtotal")]),
-          _c("span", { staticClass: "price" }, [_vm._v("€360")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "summary-item" }, [
-          _c("span", { staticClass: "text" }, [_vm._v("Discount")]),
-          _c("span", { staticClass: "price" }, [_vm._v("€0")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "summary-item" }, [
-          _c("span", { staticClass: "text" }, [_vm._v("Shipping")]),
-          _c("span", { staticClass: "price" }, [_vm._v("€0")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "summary-item" }, [
-          _c("span", { staticClass: "text" }, [_vm._v("Total")]),
-          _c("span", { staticClass: "price" }, [_vm._v("€360")])
-        ])
-      ])
+    return _c("div", { staticClass: "summary-item" }, [
+      _c("span", { staticClass: "text" }, [_vm._v("Subtotal")]),
+      _c("span", { staticClass: "price" }, [_vm._v("€360")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "summary-item" }, [
+      _c("span", { staticClass: "text" }, [_vm._v("Discount")]),
+      _c("span", { staticClass: "price" }, [_vm._v("€0")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "summary-item" }, [
+      _c("span", { staticClass: "text" }, [_vm._v("Shipping")]),
+      _c("span", { staticClass: "price" }, [_vm._v("€0")])
     ])
   }
 ]

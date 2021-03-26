@@ -57,7 +57,7 @@
 
                     <div class="form-group">
                         <label for="delivery_time">Orario di consegna:</label>
-                        <input type="time" name="delivery_time" id="delivery_time" class="form-control" required="">
+                        <input type="time" name="delivery_time" id="delivery_time" class="form-control" step="900" required="">
                     </div>
 
                     <div class="form-group">
@@ -82,6 +82,33 @@
 </body>
 
 <script>
+    document.getElementById('delivery_date').valueAsDate = new Date();
+    /*  document.getElementById('delivery_time').valueAsTime = new Date().getHours(); */
+    console.dir(Date)
+
+    let nowHour = new Date().getHours().toString();
+    console.log(nowHour)
+    let nowMinute = new Date().getMinutes().toString();
+    console.log(nowMinute)
+
+
+
+
+    /* let nowMinute = new Date() */
+
+
+    /*  
+        let nowTime = new Date().getHours();
+        let lunch = 13;
+        let dinner = 18;
+        if (nowTime <= lunch) {
+            document.getElementById('delivery_time').value = '13:00';
+        } else if (nowTime > lunch && nowTime <= dinner) {
+            //settare il valore input
+            document.getElementById('delivery_time').value = '18:00';
+        } */
+
+
     $.ajaxSetup({
 
         headers: {
@@ -95,6 +122,7 @@
     $(".btn-submit").click(function(e) {
 
         e.preventDefault();
+
 
         var name = $("input[name=customer_name]").val();
 
@@ -180,26 +208,25 @@
 
             error: function(err) {
                 // logica errori
-                /* VERIONE 1 scommentare e commentare tutto il resto della function per un refactoring da paura*/
+                /* VERIONE 1  limitazione sugli input di tipo data e ora*/
                 /* console.dir(err); */
-                console.log(err.responseText);
+                /* const err; */
                 /* VERIONE 2 */
-
-                /*  const errors = err.responseJSON.errors
-                 /* console.log(errors); */
+                const errors = err.responseJSON.errors
+                console.dir(err.responseJSON.errors);
                 /* console.log(key); */
-                /*        for (const key in errors) {
-                           if (errors.hasOwnProperty.call(errors, key)) {
-                               const element = errors[key];
-                               let errorMsg = element.toString();
-                               let i = document.getElementsByName(`${key}`);
-                               let catchError = i[0].getAttribute('name');
-                               if (key == catchError) {
-                                   i[0].style.border = '1px solid red';
-                                   i.value
-                               }
-                           }
-                       } */
+                for (const key in errors) {
+                    if (errors.hasOwnProperty.call(errors, key)) {
+                        const element = errors[key];
+                        let errorMsg = element.toString();
+                        let i = document.getElementsByName(`${key}`);
+                        let catchError = i[0].getAttribute('name');
+                        if (key == catchError) {
+                            i[0].style.border = '1px solid red';
+                            i[0].classList.add('is-invalid');
+                        }
+                    }
+                }
             }
         });
     });

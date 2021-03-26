@@ -50,7 +50,7 @@
                         <div class="summary-item"><span class="text">Subtotal</span><span class="price">€360</span></div>
                         <div class="summary-item"><span class="text">Discount</span><span class="price">€0</span></div>
                         <div class="summary-item"><span class="text">Shipping</span><span class="price">€0</span></div>
-                        <div class="summary-item"><span class="text">Total</span><span class="price">€360</span></div>
+                        <div class="summary-item"><span class="text">Total</span><span class="price"> {{ getTotal() }} €</h2></span></div>
                     </div>
                 </div>
             </div>
