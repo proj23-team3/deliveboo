@@ -22,7 +22,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $apId = $user->id;
-        // dd($apId);
+        // dd($user->api_token);
         
         return view('admin.orders.stats', compact('apId'));
     }
