@@ -36,7 +36,7 @@
                 @endforeach 
             </tbody>
         </table>
-           
+        <a class="btn btn-primary" href="{{ route('admin.stats')}}">Stats</a> 
     </div>
 
     
