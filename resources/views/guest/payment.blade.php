@@ -196,6 +196,7 @@
                                     console.log(response);
                                     if (response.success) {
                                         alert('Payment successful!');
+                                        return window.location.replace("http://127.0.0.1:8000"); 
                                     } else {
                                         alert('Payment failed');
                                     }
