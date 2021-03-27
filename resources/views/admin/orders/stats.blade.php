@@ -12,27 +12,26 @@
    <script>
     //    Variable apId pass through HomeController@stats
        var apId = {{ $apId }};
+       '{{ route('orders.index') }}'
        
-        $.get('{{ route('orders.index') }}', function(response) {
-            //console.log(response);
+        $.get(`/api/orders?user_id=${apId}`, function(response) {
+            console.log(response);
             var apiDati = response;
             var mesi = [];
             var orderAmount = [];
             apiDati.forEach(order =>{
-                if(order.user_id == apId){
                     console.log(order.amount);
                     var newData = new Date(order.delivery_date);
-                    // impostare l'ascise indicando l'abbreviazione dei giorni della settimana
+                    // impostare l'ascisse indicando l'abbreviazione dei giorni della settimana
                     var monthName = newData.toString().split(' ')[0];
 
-                    // impostare l'ascise indicando l'abbreviazione dei mesi
+                    // impostare l'ascisse indicando l'abbreviazione dei mesi
                     // var monthName = newData.toLocaleString("default", { month: "short" });
 
                     mesi.push(monthName);
                     
                     var tot = order.amount;
                     orderAmount.push(tot);
-                }
                 
             });
 

@@ -27,7 +27,7 @@ class OrderController extends Controller
         }
 
         // Set the query with get method inside a variable ant Return it in a response encoded in Json 
-        $apiOrders = $query->get();
+        $apiOrders = $query->orderBy('delivery_date', 'asc')->get();
         
         // return the response
         return response()->json($apiOrders);
