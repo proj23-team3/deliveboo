@@ -32,15 +32,4 @@ class UserController extends Controller
         // return the response
         return response()->json($apiRestaurants);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
 }

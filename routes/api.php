@@ -26,4 +26,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // });
 Route::apiResource('categories', 'API\CategoryController')->only('index');
 
-Route::apiResource('users', 'API\UserController')->only(['index','show']);
+Route::apiResource('users', 'API\UserController')->only('index');

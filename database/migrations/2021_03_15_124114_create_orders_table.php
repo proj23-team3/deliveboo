@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->date('delivery_date');
             $table->time('delivery_time');
             $table->float('amount', 5, 2);
-            $table->string('payment_id');
+            $table->string('payment_id')->nullable();
             $table->timestamps();
         });
     }
