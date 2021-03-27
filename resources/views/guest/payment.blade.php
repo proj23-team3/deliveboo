@@ -19,35 +19,81 @@
     <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
 
     {{-- style --}}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
 
 <body>
-
+    <div class="container-fluid bg-primary">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ asset('img/logo_white.png') }}" alt="" height="45">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar_nav">
+                        <li class="nav-item dropdown btn btn-light btn-sm">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Collabora con noi
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="admin">Ristoranti</a>
+                                <a class="dropdown-item" href="#">Lavora con noi</a>
+                                <a class="dropdown-item" href="#">Deliveboo per le Aziende</a>
+                            </div>
+                        </li>
+                        <li class="nav-item btn btn-light btn-sm mx-1">
+                            <a class="nav-link cart_button" id="cart_btn" href="#"><i
+                                    class="fas fa-shopping-cart "></i><span class="cart_badge">2</span><span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item btn btn-light btn-sm">
+                            <a class="nav-link" href="#">Menu</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
+            <div class="col-md-6" id="app">
+                <div class="m-2 p-3 border border-primary rounded shadow">
+                    <cart />
+                </div>
+            </div>
             <div class="col-md-6">
-                <form action="" method="post">
+                <form action="" method="post" class="m-2 p-3 border border-primary rounded shadow">
                     <div class="form-group">
                         <label for="name">Nome:</label>
-                        <input type="text" name="customer_name" id="name" class="form-control" placeholder="Nome" required="">
+                        <input type="text" name="customer_name" id="name" class="form-control" placeholder="Nome"
+                            required="">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" name="customer_email" id="email" class="form-control" placeholder="Email" required="">
+                        <input type="email" name="customer_email" id="email" class="form-control" placeholder="Email"
+                            required="">
                     </div>
 
                     <div class="form-group">
                         <label for="telephone">Telefono:</label>
-                        <input type="text" name="customer_telephone" id="telephone" class="form-control" placeholder="Telefono" required="">
+                        <input type="text" name="customer_telephone" id="telephone" class="form-control"
+                            placeholder="Telefono" required="">
                     </div>
 
                     <div class="form-group">
                         <label for="address">Indirizzo di consegna:</label>
-                        <input type="text" name="customer_address" id="address" class="form-control" placeholder="Indirizzo di consegna" required="">
+                        <input type="text" name="customer_address" id="address" class="form-control"
+                            placeholder="Indirizzo di consegna" required="">
                     </div>
 
                     <div class="form-group">
@@ -57,24 +103,28 @@
 
                     <div class="form-group">
                         <label for="delivery_time">Orario di consegna:</label>
-                        <input type="time" name="delivery_time" id="delivery_time" class="form-control" step="900" required="">
+                        <input type="time" name="delivery_time" id="delivery_time" class="form-control" step="900"
+                            required="">
                     </div>
 
                     <div class="form-group">
                         <button class="btn btn-success btn-submit">Conferma i dati</button>
+                        <span id="wait" class="d-none">Attendi...</span>
                     </div>
                 </form>
-            </div>
-            <div class="col-md-6" id="app">
-                <cart />
             </div>
         </div>
 
 
         {{-- braintree dropin --}}
-        <div class="col-md-8 col-md-offset-2">
-            <div id="dropin-container"></div>
-            <button id="submit-button" class="d-none">Request payment method</button>
+
+        <div class="row" style="margin-bottom: 10vh">
+            <div class="col-md-8 offset-md-2">
+                <div id="dropin-container"></div>
+                <div class="text-center">
+                    <button id="submit-button" class="d-none">Request payment method</button>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -82,21 +132,15 @@
 </body>
 
 <script>
+    // date and time inputs defaults
     document.getElementById('delivery_date').valueAsDate = new Date();
     /*  document.getElementById('delivery_time').valueAsTime = new Date().getHours(); */
-    console.dir(Date)
 
     let nowHour = new Date().getHours().toString();
     console.log(nowHour)
     let nowMinute = new Date().getMinutes().toString();
     console.log(nowMinute)
-
-
-
-
     /* let nowMinute = new Date() */
-
-
     /*  
         let nowTime = new Date().getHours();
         let lunch = 13;
@@ -109,6 +153,7 @@
         } */
 
 
+    // 
     $.ajaxSetup({
 
         headers: {
@@ -122,7 +167,8 @@
     $(".btn-submit").click(function(e) {
 
         e.preventDefault();
-
+        // compare la scritta attendi
+        document.getElementById('wait').classList.remove('d-none');
 
         var name = $("input[name=customer_name]").val();
 
@@ -171,8 +217,6 @@
 
             success: function(response) {
                 // entra in gioco braintree
-                var button = document.getElementById('submit-button');
-                button.classList.remove('d-none');
                 braintree.dropin.create({
                     authorization: "{{ Braintree\ClientToken::generate() }}",
                     container: '#dropin-container'
@@ -185,18 +229,23 @@
                     //         tot += subtotal;
                     //     })
                     // }
+                    document.getElementById('wait').classList.add('d-none');
+                    window.scrollTo(0, document.body.scrollHeight);
+                    var button = document.getElementById('submit-button');
+                    button.classList.remove('d-none');
 
                     button.addEventListener('click', function() {
                         instance.requestPaymentMethod(function(err, payload) {
                             payload.tot = tot;
-                            $.get('{{ route("payment.process") }}', {
+                            $.get('{{ route('payment.process') }}', {
                                     payload
                                 },
                                 function(response) {
                                     console.log(response);
                                     if (response.success) {
                                         alert('Payment successful!');
-                                        return window.location.replace("http://127.0.0.1:8000"); 
+                                        return window.location.replace(
+                                            "http://127.0.0.1:8000");
                                     } else {
                                         alert('Payment failed');
                                     }
@@ -213,6 +262,7 @@
                 /* console.dir(err); */
                 /* const err; */
                 /* VERIONE 2 */
+                document.getElementById('wait').classList.add('d-none');
                 const errors = err.responseJSON.errors
                 console.dir(err.responseJSON.errors);
                 /* console.log(key); */
@@ -231,6 +281,7 @@
             }
         });
     });
+
 </script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 
