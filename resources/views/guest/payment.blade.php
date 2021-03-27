@@ -39,7 +39,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar_nav">
-                        <li class="nav-item dropdown btn btn-light btn-sm">
+                        {{-- easter egg --}}
+                        <a class="egg btn btn-outline-primary text-right">Sì, siamo pigri, ma ingegnosi...</a>
+
+                        {{-- <li class="nav-item dropdown btn btn-light btn-sm">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Collabora con noi
@@ -57,7 +60,7 @@
                         </li>
                         <li class="nav-item btn btn-light btn-sm">
                             <a class="nav-link" href="#">Menu</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </nav>
@@ -108,8 +111,8 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-success btn-submit">Conferma i dati</button>
-                        <span id="wait" class="d-none">Attendi...</span>
+                        <button class="confirm btn btn-lg btn-primary btn-submit">Conferma i dati</button>
+                        <span id="wait" class="d-none ml-2 spinner-grow spinner-grow-sm text-primary"></span>
                     </div>
                 </form>
             </div>
@@ -117,12 +120,11 @@
 
 
         {{-- braintree dropin --}}
-
         <div class="row" style="margin-bottom: 10vh">
-            <div class="col-md-8 offset-md-2">
-                <div id="dropin-container"></div>
-                <div class="text-center">
-                    <button id="submit-button" class="d-none">Request payment method</button>
+            <div class="col-md-6 offset-md-6">
+                <div class="m-2">
+                    <div id="dropin-container"></div>
+                    <button id="submit-button" class="d-none btn btn-lg btn-success">Effettua il pagamento</button>
                 </div>
             </div>
         </div>
@@ -132,6 +134,17 @@
 </body>
 
 <script>
+    // easter egg
+    let egg = document.querySelector('a.egg');
+    egg.addEventListener('click', function() {
+        $("input[name=customer_name]").val('andrea');
+        $("input[name=customer_email]").val('andrea@example.com');
+        $("input[name=customer_telephone]").val('312123231');
+        $("input[name=customer_address]").val('Via del team 3');
+        $("input[name=delivery_time]").val('20:00');
+    });
+
+
     // date and time inputs defaults
     document.getElementById('delivery_date').valueAsDate = new Date();
     /*  document.getElementById('delivery_time').valueAsTime = new Date().getHours(); */
@@ -169,6 +182,7 @@
         e.preventDefault();
         // compare la scritta attendi
         document.getElementById('wait').classList.remove('d-none');
+        document.getElementById('wait').classList.add('d-inline-block');
 
         var name = $("input[name=customer_name]").val();
 
@@ -230,7 +244,9 @@
                     //     })
                     // }
                     document.getElementById('wait').classList.add('d-none');
+                    document.getElementById('wait').classList.remove('d-inline-block');
                     window.scrollTo(0, document.body.scrollHeight);
+                    document.querySelector('button.confirm').disabled = true;
                     var button = document.getElementById('submit-button');
                     button.classList.remove('d-none');
 
