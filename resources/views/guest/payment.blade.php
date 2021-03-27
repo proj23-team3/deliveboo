@@ -23,6 +23,13 @@
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <style>
+        small {
+            line-height: 1.3;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -108,6 +115,8 @@
                         <label for="delivery_time">Orario di consegna:</label>
                         <input type="time" name="delivery_time" id="delivery_time" class="form-control" step="900"
                             required="">
+                        <small class="d-block text-info">Pranzo: dalle 13:00 alle 15:00<br />Cena: dalle 18:00 alle
+                            21:00</small>
                     </div>
 
                     <div class="form-group">
@@ -141,32 +150,30 @@
         $("input[name=customer_email]").val('andrea@example.com');
         $("input[name=customer_telephone]").val('312123231');
         $("input[name=customer_address]").val('Via del team 3');
-        $("input[name=delivery_time]").val('20:00');
+        // $("input[name=delivery_time]").val('20:00');
     });
 
 
     // date and time inputs defaults
     document.getElementById('delivery_date').valueAsDate = new Date();
-    /*  document.getElementById('delivery_time').valueAsTime = new Date().getHours(); */
+    // mirko.dir
+    // let nowHour = new Date().getHours().toString();
+    // console.log(nowHour)
+    // let nowMinute = new Date().getMinutes().toString();
+    // console.log(nowMinute)
+    // let nowMinute = new Date() 
 
-    let nowHour = new Date().getHours().toString();
-    console.log(nowHour)
-    let nowMinute = new Date().getMinutes().toString();
-    console.log(nowMinute)
-    /* let nowMinute = new Date() */
-    /*  
-        let nowTime = new Date().getHours();
-        let lunch = 13;
-        let dinner = 18;
-        if (nowTime <= lunch) {
-            document.getElementById('delivery_time').value = '13:00';
-        } else if (nowTime > lunch && nowTime <= dinner) {
-            //settare il valore input
-            document.getElementById('delivery_time').value = '18:00';
-        } */
+    // andrea.dir
+    let nowTime = new Date().getHours();
+    let lunch = 13;
+    let dinner = 18;
+    if (nowTime <= lunch) {
+        document.getElementById('delivery_time').value = '13:00';
+    } else if (nowTime > lunch && nowTime <= dinner) {
+        //settare il valore input
+        document.getElementById('delivery_time').value = '18:00';
+    }
 
-
-    // 
     $.ajaxSetup({
 
         headers: {
