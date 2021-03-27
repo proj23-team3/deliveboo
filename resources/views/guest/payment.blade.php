@@ -28,6 +28,16 @@
             line-height: 1.3;
         }
 
+        .form-control::-webkit-input-placeholder {
+            font-size: 0.8rem;
+            color: red;
+            opacity: .6;
+        }
+
+        .form-control {
+            font-weight: 700;
+        }
+
     </style>
 
 </head>
@@ -84,37 +94,33 @@
                 <form action="" method="post" class="m-2 p-3 border border-primary rounded shadow">
                     <div class="form-group">
                         <label for="name">Nome:</label>
-                        <input type="text" name="customer_name" id="name" class="form-control" placeholder="Nome"
-                            required="">
+                        <input type="text" name="customer_name" id="name" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" name="customer_email" id="email" class="form-control" placeholder="Email"
-                            required="">
+                        <input type="email" name="customer_email" id="email" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label for="telephone">Telefono:</label>
-                        <input type="text" name="customer_telephone" id="telephone" class="form-control"
-                            placeholder="Telefono" required="">
+                        <input type="text" name="customer_telephone" id="telephone" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label for="address">Indirizzo di consegna:</label>
-                        <input type="text" name="customer_address" id="address" class="form-control"
-                            placeholder="Indirizzo di consegna" required="">
+                        <input type="text" name="customer_address" id="address" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label for="delivery_date">Data di consegna:</label>
-                        <input type="date" name="delivery_date" id="delivery_date" class="form-control" required="">
+                        <input type="date" name="delivery_date" id="delivery_date" class="form-control" required>
                     </div>
 
                     <div class="form-group">
                         <label for="delivery_time">Orario di consegna:</label>
                         <input type="time" name="delivery_time" id="delivery_time" class="form-control" step="900"
-                            required="">
+                            required>
                         <small class="d-block text-info">Pranzo: dalle 13:00 alle 15:00<br />Cena: dalle 18:00 alle
                             21:00</small>
                     </div>
@@ -280,27 +286,41 @@
             },
 
             error: function(err) {
-                // logica errori
-                /* VERIONE 1  limitazione sugli input di tipo data e ora*/
-                /* console.dir(err); */
-                /* const err; */
-                /* VERIONE 2 */
+
                 document.getElementById('wait').classList.add('d-none');
-                const errors = err.responseJSON.errors
-                console.dir(err.responseJSON.errors);
-                /* console.log(key); */
-                for (const key in errors) {
-                    if (errors.hasOwnProperty.call(errors, key)) {
-                        const element = errors[key];
-                        let errorMsg = element.toString();
-                        let i = document.getElementsByName(`${key}`);
-                        let catchError = i[0].getAttribute('name');
-                        if (key == catchError) {
-                            i[0].style.border = '1px solid red';
-                            i[0].classList.add('is-invalid');
+                document.getElementById('wait').classList.remove('d-inline-block');
+
+                // logica errori
+                let errorsObj = err.responseJSON.errors;
+                console.log(errorsObj);
+
+                for (const key in errorsObj) {
+                    let formInputs = document.querySelectorAll('form input');
+                    formInputs.forEach(input => {
+                        if (key == input.name) {
+                            input.placeholder = '* Campo obbligatorio'
                         }
-                    }
+                    });
                 }
+
+
+
+
+                // const errors = err.responseJSON.errors
+                // console.dir(err.responseJSON.errors);
+                // console.log(key);
+                // for (const key in errors) {
+                //     if (errors.hasOwnProperty.call(errors, key)) {
+                //         const element = errors[key];
+                //         let errorMsg = element.toString();
+                //         let i = document.getElementsByName(`${key}`);
+                //         let catchError = i[0].getAttribute('name');
+                //         if (key == catchError) {
+                //             i[0].style.border = '1px solid red';
+                //             i[0].classList.add('is-invalid');
+                //         }
+                //     }
+                // }
             }
         });
     });
