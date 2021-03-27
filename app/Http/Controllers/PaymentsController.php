@@ -42,8 +42,6 @@ class PaymentsController extends Controller
             'user_id' => 'required',
         ]);
 
-        Order::create($validated);
-
         // Creare l'oggetto mail da inserire nel parametro da passare al markup mailable
         $mail = Order::create($validated);
 
@@ -52,6 +50,7 @@ class PaymentsController extends Controller
         $response = array(
             'status' => 'success',
             'name' => $request->customer_name,
+            'delivery_date' => $request->delivery_date
         );
         return response()->json($response);
 

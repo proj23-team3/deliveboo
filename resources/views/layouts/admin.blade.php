@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    @yield('chartStat')
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Adobe Fonts -->
@@ -103,6 +104,7 @@
             </div>
         </main>
     </div>
+    @yield('scriptChart')
 </body>
 
 </html>

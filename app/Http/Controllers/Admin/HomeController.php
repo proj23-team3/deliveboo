@@ -17,4 +17,13 @@ class HomeController extends Controller
         $user = Auth::user();
         return view('admin.home', compact('user'));
     }
+
+    public function stats()
+    {
+        $user = Auth::user();
+        $apId = $user->id;
+        // dd($apId);
+        
+        return view('admin.orders.stats', compact('apId'));
+    }
 }
