@@ -7107,7 +7107,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".risto_image[data-v-e0fa6e82] {\n  height: 33vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.dish_image[data-v-e0fa6e82] {\n  background-size: contain;\n  background-repeat: no-repeat;\n  min-height: 100px;\n}\n.btn_rounded[data-v-e0fa6e82] {\n  padding: 0 0.3rem;\n  border-radius: 100%;\n  background: transparent;\n  color: #00ccbc;\n  border: 1px solid #00ccbc;\n}\n.btn_rounded[data-v-e0fa6e82]:hover {\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".risto_image[data-v-e0fa6e82] {\n  height: 40vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.dish_image[data-v-e0fa6e82] {\n  background-size: contain;\n  background-repeat: no-repeat;\n  min-height: 100px;\n}\n.btn_rounded[data-v-e0fa6e82] {\n  padding: 0 0.3rem;\n  border-radius: 100%;\n  background: transparent;\n  color: #00ccbc;\n  border: 1px solid #00ccbc;\n}\n.btn_rounded[data-v-e0fa6e82]:hover {\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -52240,8 +52240,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -186,7 +186,7 @@ export default {
 
 <style lang="scss" scoped>
 .risto_image {
-    height: 33vh;
+    height: 40vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

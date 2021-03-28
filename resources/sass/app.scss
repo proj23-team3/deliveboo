@@ -107,6 +107,9 @@ footer {
     .instagram:hover {
         color: #C13584;
     }
+    .copyright {
+        text-align: right;
+    }
 }
 
 .image {
@@ -139,5 +142,8 @@ textarea:focus {
     }
     .checkbox {
         margin-left: 10px;
+    }
+    .copyright {
+        text-align: left !important;
     }
 }
