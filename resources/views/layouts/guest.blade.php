@@ -128,7 +128,7 @@
                             <a href="#" class="instagram"><i class="fab fa-instagram mr-2"></i></a>
                         </div>
                         <!-- Copyright -->
-                        <div class="col-md-6 text-right p-3 text-white">
+                        <div class="copyright col-md-6 p-3 text-white">
                             &copy; 2021 Copyright:
                             <a class="text-white" href="#">Team 3 Classe #23</a>
                         </div>

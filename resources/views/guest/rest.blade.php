@@ -1,6 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
-{{-- <restaurant-component :restaurant='@json($ristorante)' /> --}}
-<rest :rest='@json($ristorante)' route="{{ route('checkout') }}" />
+<div class="mt-5 mb-5">
+    <rest :rest='@json($ristorante)' route="{{ route('checkout') }}" />
+</div>
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="mt-5 font-weight-bolder">Crea il tuo piatto</h1>
+    <h1 class="mt-5 font-weight-bolder">Crea il tuo piatto <i class="fas fa-utensils"></i></h1>
 
 
     <form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
@@ -54,7 +54,7 @@
                 <input type="file" name="dish_image" id="dish_image" class="form-control-file">
             </div>
         </div>
-        <button class="btn btn-primary mt-3" type="submit">Aggiungi il tuo piatto!</button>
+        <button class="btn btn-primary mt-3" type="submit">Aggiungi il tuo piatto</button>
     </form>
 
 

@@ -1,65 +1,67 @@
 @extends('layouts.admin')
 
 @section('content')
+    <h1 class="mt-5 font-weight-bolder">Modifica il tuo piatto <i class="fas fa-utensils"></i></h1>
 
-    <h1>Modifica il Piatto</h1>
-
-    
         <form method="POST" action="{{ route('admin.dishes.update', ['dish' => $dish->id]) }}"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="form-group row">
-                <label for="dish_name" class="col-sm-1-12 col-form-label">Nome Piatto </label>
-                <div class="col-sm-1-12">
-                    <br> 
-                    <input type="text" class="form-control mx-2" name="dish_name" id="dish_name"
-                        value="{{ $dish->dish_name }}">
-                </div>
-            </div>
-            <div class="form-group row">
 
-                <label for="dish_ingredients" class="col-sm-1-12 col-form-label">Ingredienti  </label>
-                <div class="col-sm-1-12">
-                    <br> 
-                    <textarea name="dish_ingredients" class="mx-2" id="dish_ingredients" cols="30"
-                        rows="10">{{ $dish->dish_ingredients }}</textarea>
+            <hr>
+            <div class="form-group row">
+                <label for="dish_name" class="col-form-label col-md-12">Inserisci il nome del tuo piatto</label>
+                <div class="col-md-4">
+                    <input id="dish_name" type="text" class="form-control"
+                    name="dish_name" placeholder="Nome del piatto" value="{{ $dish->dish_name }}">
                 </div>
             </div>
+
             <div class="form-group row">
-                <label for="dish_price" class="col-sm-1-12 col-form-label">Prezzo  </label>
-                <div class="col-sm-1-12">
-                    <br>
-                    <input type="number" step=".01 " class="form-control mx-2" name="dish_price" id="dish_price"
-                        value="{{ $dish->dish_price }}">
+                <label for="dish_ingredients" class="col-md-12 col-form-label">Inserisci la descrizione con gli ingredienti
+                del
+                tuo piatto</label>
+                <div class="col-md-12">
+                    <textarea style="resize: none; padding: 10px; min-width: 100%; border: 1px solid lightgrey;"
+                name="dish_ingredients" id="dish_ingredients" cols="50" rows="10"
+                placeholder="Descrivi il tuo piatto...">{{ $dish->dish_ingredients }}</textarea>
                 </div>
             </div>
+
             <div class="form-group row">
-                <div class="form-check">
+                <label for="dish_price" class="col-md-12 col-form-label">Inserisci il prezzo di vendita del tuo piatto</label>
+                <div class="col-md-4 mb-4">
+                    <input type="number" step=".01 " class="form-control" name="dish_price" id="dish_price"
+                placeholder="Prezzo in €" value="{{ $dish->dish_price }}">
+                </div>
+            </div>
+
+            <p>Indica se il tuo piatto è attualmente disponibile per l'acquisto</p>
+            <div class="form-group row">
+                <div class="form-check col-md-2 ml-3">
                     <label class="form-check-label" for="is_visible">
                         <input type="radio" class="form-check-input" name="is_visible" id="is_visible" value="1" checked>
-                        Visible
+                        Disponibile
                     </label>
                 </div>
-                <div class="form-check">
+                <div class="form-check col-md-2">
                     <label class="form-check-label" for="is_invisible">
                         <input type="radio" class="form-check-input" name="is_visible" id="is_invisible" value="1">
-                        Invisible
+                        Esaurito
                     </label>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="dish_image"
-                    class="col-md-3 col-form-label">{{ __('Scegli un immagine per il tuo Piatto') }}</label>
-
-                <div class="col-md-7">
+                class="col-md-12 col-form-label mt-4 mb-2">{{ __('Inserisci la foto del tuo piatto') }}
+                </label>
+                <div class="col-md-5">
                     <input type="file" name="dish_image" id="dish_image" class="form-control-file">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary"> Modifica Piatto </button>
+            <button class="btn btn-primary mt-3" type="submit">Modifica il piatto</button>
         </form>
-    
 
 @endsection
 
