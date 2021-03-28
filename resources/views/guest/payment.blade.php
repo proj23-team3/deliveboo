@@ -95,7 +95,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6" id="app">
-                <h2 class="m-2"><span class="text-primary"><i class="fas fa-shopping-cart"></i></span> Il tuo carrello
+                <h2 class="mt-5 ml-2 mb-3"><span class="text-primary"><i class="fas fa-shopping-cart"></i></span> Il tuo
+                    carrello
                 </h2>
                 <div class="m-2 rounded custom_shadow">
                     <cart />
@@ -104,6 +105,10 @@
                     <a id="backToRest">Ristorante</a></small>
             </div>
             <div class="col-md-6">
+                <h2 class="mt-5 ml-2 mb-3"><span class="text-primary"><i class="fas fa-file-alt"></i></span> I dati
+                    per il tuo
+                    ordine
+                </h2>
                 <form action="" method="post" class="m-2 p-3 rounded custom_shadow">
                     <div class="form-group">
                         <label for="name">Nome:</label>
@@ -181,8 +186,7 @@
     let id_rest = storeCart[0].risto_id;
     link.href = `/categories/restaurant/${id_rest}`;
 
-
-    // easter egg
+    // fill it!
     let egg = document.querySelector('a.egg');
     egg.addEventListener('click', function() {
         $("input[name=customer_name]").val('andrea');
@@ -191,7 +195,6 @@
         $("input[name=customer_address]").val('Via del team 3');
         // $("input[name=delivery_time]").val('20:00');
     });
-
 
     // date and time inputs defaults
     document.getElementById('delivery_date').valueAsDate = new Date();

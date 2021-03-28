@@ -107,7 +107,7 @@ export default {
             });
             return total;
         },
-        /* sisemare la unz per img del piatto */
+        // pensare a img del piatto nel cart
         getDishImg(dish) {
             if (dish.dish_image.indexOf("dishes") >= 0) {
                 return `background-image: url(/storage/${dish.dish_image})`;
@@ -115,7 +115,6 @@ export default {
                 return `background-image: url(${dish.dish_image})`;
             }
         }
-        /* sisemare la unz per img del piatto */
     },
     mounted() {
         if (localStorage.carrello) {

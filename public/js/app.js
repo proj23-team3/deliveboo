@@ -2077,8 +2077,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       });
       return total;
     },
-
-    /* sisemare la unz per img del piatto */
+    // pensare a img del piatto nel cart
     getDishImg: function getDishImg(dish) {
       if (dish.dish_image.indexOf("dishes") >= 0) {
         return "background-image: url(/storage/".concat(dish.dish_image, ")");
@@ -2086,8 +2085,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         return "background-image: url(".concat(dish.dish_image, ")");
       }
     }
-    /* sisemare la unz per img del piatto */
-
   },
   mounted: function mounted() {
     if (localStorage.carrello) {
