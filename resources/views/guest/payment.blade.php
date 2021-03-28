@@ -100,6 +100,8 @@
                 <div class="m-2 rounded custom_shadow">
                     <cart />
                 </div>
+                <small class="d-inline-block m-2">Vuoi aggiungere piatti diversi? Torna al
+                    <a id="backToRest">Ristorante</a></small>
             </div>
             <div class="col-md-6">
                 <form action="" method="post" class="m-2 p-3 rounded custom_shadow">
@@ -173,6 +175,13 @@
 </body>
 
 <script>
+    // back to rest
+    const link = document.getElementById('backToRest');
+    let storeCart = JSON.parse(localStorage.getItem('carrello'));
+    let id_rest = storeCart[0].risto_id;
+    link.href = `/categories/restaurant/${id_rest}`;
+
+
     // easter egg
     let egg = document.querySelector('a.egg');
     egg.addEventListener('click', function() {
