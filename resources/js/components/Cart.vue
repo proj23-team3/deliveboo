@@ -1,60 +1,31 @@
 <template>
-    <div v-if="carrello.length > 0" class="card p-1">
-        <div class="content">
-            <div class="row">
-                <div class="col-md-12 col-lg-8">
-                    <div class="items">
-                        <div    class="product"
-                                v-for="dish in carrello"
-                                :key="dish.id"
-                                >
-                            <div class="row">
-                                <div class="col-md-11">
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="col-md-5 product-name">
-                                                <div class="product-name">
-                                                    <label for="name">Nome:</label>
-                                                    <div class="product-info">
-                                                        <label class="text-uppercase"><span class="value">{{ dish.name }}</span></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 quantity">
-                                                <label for="quantity">Quantità:</label>
-                                                <label class="card text-center d-flex" for="quantity">
-                                                    <span class="btn_rounded" @click="reduce(dish)">
-                                                        <i class="fas fa-minus"></i>
-                                                    </span>
-                                                    <span> {{ dish.qty }}</span>
-                                                     <span class="btn_rounded" @click="increase(dish)">
-                                                        <i class="fas fa-plus"></i>
-                                                    </span>
-                                                    </label>
-
-                                            </div>
-                                            <div class="col-md-3 price">
-                                                <label for="price">Prezzo:</label>
-                                                <span>{{ dish.qty * dish.price }} €</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-4">
-                    <div class="summary">
-                        <h3>Summary</h3>
-                        <div class="summary-item"><span class="text">Subtotal</span><span class="price">€360</span></div>
-                        <div class="summary-item"><span class="text">Discount</span><span class="price">€0</span></div>
-                        <div class="summary-item"><span class="text">Shipping</span><span class="price">€0</span></div>
-                        <div class="summary-item"><span class="text">Total</span><span class="price"> {{ getTotal() }} €</h2></span></div>
-                    </div>
-                </div>
+    <div v-if="carrello.length > 0">
+        <div
+            v-for="dish in carrello"
+            :key="dish.id"
+            class="d-flex justify-content-between align-items-center p-3"
+        >
+            <span class="d-inline-block w-25">{{ dish.name }}</span>
+            <div
+                class="d-flex align-items-center border border-primary rounded"
+            >
+                <span class="qty bg-primary" @click="increase(dish)">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </span>
+                <span class="d-inline-block mx-2 font-weight-bold">
+                    {{ dish.qty }}
+                </span>
+                <span class="qty bg-primary" @click="reduce(dish)">
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                </span>
             </div>
+            <span class="d-inline-block w-25 text-right"
+                >{{ dish.qty * dish.price }}€</span
+            >
         </div>
+        <h3 class="text-right p-3">
+            Totale: <span class="font-weight-bold">{{ getTotal() }}€</span>
+        </h3>
     </div>
 </template>
 
@@ -155,24 +126,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dish_image {
-    background-size: contain;
-    background-repeat: no-repeat;
-    min-height: 100px;
-}
-.btn_rounded {
-    font-size: 0.7rem;
+span.qty {
+    display: grid;
     padding: 0.3rem;
-    background: transparent;
-    &:hover {
-        cursor: pointer;
-    }
-}
-.quantity{
-    .card{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+    place-items: center;
+    color: #fff;
+    cursor: pointer;
 }
 </style>
