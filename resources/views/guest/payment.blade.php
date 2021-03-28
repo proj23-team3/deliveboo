@@ -38,6 +38,11 @@
             font-weight: 700;
         }
 
+        .custom_shadow {
+            /* il nostro primary convertito in rgba */
+            box-shadow: 0 .5rem 1rem rgba(0, 204, 188, .2);
+        }
+
     </style>
 
 </head>
@@ -57,7 +62,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar_nav">
                         {{-- easter egg --}}
-                        <a class="egg btn btn-outline-primary text-right">Sì, siamo pigri, ma ingegnosi...</a>
+                        <a class="egg btn btn-outline-primary text-right">Fill it!</a>
 
                         {{-- <li class="nav-item dropdown btn btn-light btn-sm">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -86,12 +91,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6" id="app">
-                <div class="m-2 p-3 border border-primary rounded shadow">
+                <h2 class="m-2"><span class="text-primary"><i class="fas fa-shopping-cart"></i></span> Il tuo carrello
+                </h2>
+                <div class="m-2 rounded custom_shadow">
                     <cart />
                 </div>
             </div>
             <div class="col-md-6">
-                <form action="" method="post" class="m-2 p-3 border border-primary rounded shadow">
+                <form action="" method="post" class="m-2 p-3 rounded custom_shadow">
                     <div class="form-group">
                         <label for="name">Nome:</label>
                         <input type="text" name="customer_name" id="name" class="form-control" required>
@@ -170,24 +177,29 @@
     // let nowMinute = new Date() 
 
     // andrea.dir
-    let nowTime = new Date().getHours();
+    var d = new Date();
+    let nowH = d.getHours();
+    let nowM = d.getMinutes();
+    console.log(nowM);
     let lunch = 13;
     let dinner = 18;
-    if (nowTime <= lunch) {
+    if (nowH <= lunch) {
         document.getElementById('delivery_time').value = '13:00';
-    } else if (nowTime > lunch && nowTime <= dinner) {
+    } else if (nowH > lunch && nowH <= dinner) {
         //settare il valore input
         document.getElementById('delivery_time').value = '18:00';
+    } else {
+        // gestisco l'eccezione in cui i minuti sono < 10
+        if (nowM.toString().length == 1) {
+            nowH = `0${nowH}`;
+        }
+        document.getElementById('delivery_time').value = `${nowH}:${nowM}`;
     }
 
     $.ajaxSetup({
-
         headers: {
-
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
         }
-
     });
 
     $(".btn-submit").click(function(e) {
@@ -197,19 +209,15 @@
         document.getElementById('wait').classList.remove('d-none');
         document.getElementById('wait').classList.add('d-inline-block');
 
+        // assegno tutti i vals degli input a variabili da passare nella req
         var name = $("input[name=customer_name]").val();
-
         var email = $("input[name=customer_email]").val();
-
         var telephone = $("input[name=customer_telephone]").val();
-        // console.log(telephone);
-
         var address = $("input[name=customer_address]").val();
-
         var delivery_date = $("input[name=delivery_date]").val();
-
         var delivery_time = $("input[name=delivery_time]").val();
 
+        // ricavo dal carrello settato nel localStorage l'amount e l'id ristorante, necessari per la stampa dell'ordine
         let carrellino = JSON.parse(localStorage.getItem('carrello'));
         let risto_id = 0;
         let tot = 0;
@@ -220,16 +228,14 @@
                 risto_id = item.risto_id;
             })
         }
-        /* console.log(tot, risto_id); */
 
+        // token necessario per laravel
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+        // la chiamata che stampa l'ordine a seguito della validazione sul form
         $.ajax({
-
             type: 'POST',
-
             url: '/ajaxRequest',
-
             data: {
                 _token: CSRF_TOKEN,
                 customer_name: name,
@@ -242,58 +248,52 @@
                 user_id: risto_id,
             },
 
+            // se il form è compilato correttamente...
             success: function(response) {
                 // entra in gioco braintree
                 braintree.dropin.create({
                     authorization: "{{ Braintree\ClientToken::generate() }}",
                     container: '#dropin-container'
                 }, function(createErr, instance) {
-                    // let carrellino = JSON.parse(localStorage.getItem('carrello'));
-                    // let tot = 0;
-                    // if (localStorage.carrello) {
-                    //     carrellino.forEach(item => {
-                    //         let subtotal = item.qty * item.price;
-                    //         tot += subtotal;
-                    //     })
-                    // }
+                    // azioni sugli elementi html
                     document.getElementById('wait').classList.add('d-none');
                     document.getElementById('wait').classList.remove('d-inline-block');
                     window.scrollTo(0, document.body.scrollHeight);
                     document.querySelector('button.confirm').disabled = true;
+
+                    // compare il bottone per avviare il giro di braintree
                     var button = document.getElementById('submit-button');
                     button.classList.remove('d-none');
 
+                    // evento click sul botton e ajax get per braintree
                     button.addEventListener('click', function() {
                         instance.requestPaymentMethod(function(err, payload) {
                             payload.tot = tot;
                             $.get('{{ route('payment.process') }}', {
-                                    payload
-                                },
-                                function(response) {
-                                    console.log(response);
-                                    if (response.success) {
-                                        alert('Payment successful!');
-                                        return window.location.replace(
-                                            "http://127.0.0.1:8000");
-                                    } else {
-                                        alert('Payment failed');
-                                    }
-                                }, 'json');
+                                payload
+                            }, function(response) {
+                                console.log(response);
+                                if (response.success) {
+                                    alert('Payment successful!');
+                                    return window.location.replace(
+                                        "http://127.0.0.1:8000");
+                                } else {
+                                    alert('Payment failed');
+                                }
+                            }, 'json');
                         });
                     });
                 });
-
             },
 
+            // se il form NON è compilato correttamente...
             error: function(err) {
-
+                // spinner
                 document.getElementById('wait').classList.add('d-none');
                 document.getElementById('wait').classList.remove('d-inline-block');
 
                 // logica errori
                 let errorsObj = err.responseJSON.errors;
-                console.log(errorsObj);
-
                 for (const key in errorsObj) {
                     let formInputs = document.querySelectorAll('form input');
                     formInputs.forEach(input => {
@@ -302,9 +302,6 @@
                         }
                     });
                 }
-
-
-
 
                 // const errors = err.responseJSON.errors
                 // console.dir(err.responseJSON.errors);
