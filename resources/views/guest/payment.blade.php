@@ -43,6 +43,10 @@
             box-shadow: 0 .5rem 1rem rgba(0, 204, 188, .2);
         }
 
+        .modal-content {
+            font-size: 1.2rem;
+        }
+
     </style>
 
 </head>
@@ -140,13 +144,26 @@
             </div>
         </div>
 
-
         {{-- braintree dropin --}}
         <div class="row" style="margin-bottom: 10vh">
             <div class="col-md-6 offset-md-6">
                 <div class="m-2">
                     <div id="dropin-container"></div>
                     <button id="submit-button" class="d-none btn btn-lg btn-success">Effettua il pagamento</button>
+                </div>
+            </div>
+        </div>
+
+        {{-- modal success --}}
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content bg-success p-3 text-white">
+                    Pagamento andato a buon fine!
+                    <br>
+                    Ti abbiamo inviato una mail con i dettagli dell'Ordine.
+                    <br>
+                    Grazie per aver scelto Deliveboo :)
                 </div>
             </div>
         </div>
@@ -176,7 +193,7 @@
     // console.log(nowMinute)
     // let nowMinute = new Date() 
 
-    // andrea.dir
+    // andrea.dir - logica per il set del time input
     var d = new Date();
     let nowH = d.getHours();
     let nowM = d.getMinutes();
@@ -274,9 +291,19 @@
                             }, function(response) {
                                 console.log(response);
                                 if (response.success) {
-                                    alert('Payment successful!');
-                                    return window.location.replace(
-                                        "http://127.0.0.1:8000");
+                                    localStorage.clear();
+
+                                    // modal trigger
+                                    $('.modal').modal('show');
+                                    // relocation
+                                    setTimeout(() => {
+                                        window.location
+                                            .replace(
+                                                '/')
+                                    }, 4000);
+                                    // alert('Payment successful!');
+                                    // return window.location.replace(
+                                    //     "http://127.0.0.1:8000");
                                 } else {
                                     alert('Payment failed');
                                 }
