@@ -44,7 +44,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item btn btn-light btn-sm mx-1">
-                                    <a class="nav-link cart_button" id="cart_btn" href="#"><i
+                                    <a class="nav-link cart_button" id="cart_btn" href="{{ route('checkout') }}"><i
                                             class="fas fa-shopping-cart "></i><span class="cart_badge">2</span><span
                                             class="sr-only">(current)</span></a>
                                 </li>
