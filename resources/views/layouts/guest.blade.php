@@ -37,14 +37,14 @@
                     Collabora con noi
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('admin.index')}}">Ristoranti</a>
+                    <a class="dropdown-item" href="{{ route('admin.index') }}">Ristoranti</a>
                     <a class="dropdown-item" href="#">Lavora con noi</a>
                     <a class="dropdown-item" href="#">Deliveboo per le Aziende</a>
                   </div>
                 </li>
                 <li class="nav-item btn btn-light btn-sm mx-1">
                   <a class="nav-link cart_button" id="cart_btn" href="{{ route('checkout') }}"><i
-                      class="fas fa-shopping-cart "></i><span id="cart_bdg" class="cart_badge">2</span><span
+                      class="fas fa-shopping-cart "></i><span id="cart_bdg" class="cart_badge d-none"></span><span
                       class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item btn btn-light btn-sm">

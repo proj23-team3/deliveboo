@@ -2649,12 +2649,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   props: ["choose_cat", "rests"],
   data: function data() {
@@ -39482,9 +39476,13 @@ var render = function() {
                   { staticClass: "card_container categories_checkboxes" },
                   _vm._l(_vm.categories, function(category) {
                     return _c(
-                      "div",
-                      { key: category.id, staticClass: "checkbox" },
+                      "label",
+                      { key: category.id, staticClass: "b-contain mr-3" },
                       [
+                        _c("span", { attrs: { for: category.id } }, [
+                          _vm._v(_vm._s(category.name))
+                        ]),
+                        _vm._v(" "),
                         _c("input", {
                           directives: [
                             {
@@ -39524,9 +39522,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _c("label", { attrs: { for: category.id } }, [
-                          _vm._v(_vm._s(category.name))
-                        ])
+                        _c("div", { staticClass: "b-input" })
                       ]
                     )
                   }),
@@ -39638,14 +39634,6 @@ var render = function() {
                                 _c("h5", [_vm._v(_vm._s(rest.address))]),
                                 _vm._v(" "),
                                 _vm._m(0, true),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _vm._v(
-                                    "\n                                                    Costi di consegna:\n                                                    " +
-                                      _vm._s(rest.shipping_costs) +
-                                      "\n                                                    €\n                                                "
-                                  )
-                                ]),
                                 _vm._v(" "),
                                 _c(
                                   "a",
@@ -52370,8 +52358,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Mirko\Desktop\Classe_23\Deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Mirko\Desktop\Classe_23\Deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
