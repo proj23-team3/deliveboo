@@ -2230,6 +2230,27 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["rest", "route"],
   data: function data() {
@@ -7107,7 +7128,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".risto_image[data-v-e0fa6e82] {\n  height: 40vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.dish_image[data-v-e0fa6e82] {\n  background-size: contain;\n  background-repeat: no-repeat;\n  min-height: 100px;\n}\n.btn_rounded[data-v-e0fa6e82] {\n  padding: 0 0.3rem;\n  border-radius: 100%;\n  background: transparent;\n  color: #00ccbc;\n  border: 1px solid #00ccbc;\n}\n.btn_rounded[data-v-e0fa6e82]:hover {\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".risto_image[data-v-e0fa6e82] {\n  height: 40vh;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.dish_image[data-v-e0fa6e82] {\n  background-size: contain;\n  background-repeat: no-repeat;\n  min-height: 100px;\n}\n.btn_rounded[data-v-e0fa6e82] {\n  padding: 0 0.3rem;\n  border-radius: 100%;\n  background: transparent;\n  color: #00ccbc;\n  border: 1px solid #00ccbc;\n}\n.btn_rounded[data-v-e0fa6e82]:hover {\n  cursor: pointer;\n}\nspan.qty[data-v-e0fa6e82] {\n  display: grid;\n  padding: 0.3rem;\n  place-items: center;\n  color: #fff;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -39157,7 +39178,7 @@ var render = function() {
       _c("div", { staticClass: "row m-1 p-3" }, [
         _c(
           "div",
-          { staticClass: "col-md-6 piatti" },
+          { staticClass: "col-md-6 piatti mb-3" },
           [
             _c("h3", { staticClass: "text-uppercase text-black" }, [
               _vm._v(
@@ -39210,98 +39231,127 @@ var render = function() {
           2
         ),
         _vm._v(" "),
-        _vm.carrello.length > 0
-          ? _c(
-              "div",
-              { staticClass: "offset-md-1 col-md-5 text-center shadow" },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row card py-4" },
-                  [
-                    _vm._l(_vm.carrello, function(dish) {
-                      return _c(
-                        "div",
-                        { key: dish.id, staticClass: "d-flex col-xs-12" },
-                        [
-                          _c("div", { staticClass: "col-md-4" }, [
-                            _c("p", { staticClass: "text-uppercase" }, [
-                              _vm._v(_vm._s(dish.name))
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "offset-md-1 col-md-5" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm.carrello.length > 0
+            ? _c(
+                "div",
+                { staticClass: "shadow rounded pb-3" },
+                [
+                  _vm._l(_vm.carrello, function(dish) {
+                    return _c(
+                      "div",
+                      {
+                        key: dish.id,
+                        staticClass:
+                          "d-flex justify-content-between align-items-center p-3"
+                      },
+                      [
+                        _c("span", { staticClass: "d-inline-block w-25" }, [
+                          _vm._v(_vm._s(dish.name))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "d-flex align-items-center border border-primary rounded"
+                          },
+                          [
                             _c(
-                              "a",
+                              "span",
                               {
-                                staticClass: "btn_rounded",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.reduce(dish)
-                                  }
-                                }
-                              },
-                              [_c("i", { staticClass: "fas fa-minus" })]
-                            ),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "px-3" }, [
-                              _vm._v(_vm._s(dish.qty))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn_rounded",
+                                staticClass: "qty bg-primary",
                                 on: {
                                   click: function($event) {
                                     return _vm.increase(dish)
                                   }
                                 }
                               },
-                              [_c("i", { staticClass: "fas fa-plus" })]
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-plus",
+                                  attrs: { "aria-hidden": "true" }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "d-inline-block mx-2 font-weight-bold"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(dish.qty) +
+                                    "\n                            "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "qty bg-primary",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.reduce(dish)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-minus",
+                                  attrs: { "aria-hidden": "true" }
+                                })
+                              ]
                             )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-4" }, [
-                            _c("p", [
-                              _vm._v(_vm._s(dish.qty * dish.price) + "€")
-                            ])
-                          ])
-                        ]
-                      )
-                    }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "d-inline-block w-25 text-right" },
+                          [_vm._v(_vm._s(dish.qty * dish.price) + "€")]
+                        )
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-center" }, [
+                    _c("h3", { staticClass: "pt-3 border-top" }, [
+                      _vm._v(
+                        "\n                            Totale:\n                            "
+                      ),
+                      _c("span", { staticClass: "font-weight-bold" }, [
+                        _vm._v(_vm._s(_vm.getTotal()) + "€")
+                      ])
+                    ]),
                     _vm._v(" "),
-                    _c("hr"),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-xs-12" }, [
-                      _c("h2", [
-                        _vm._v("Totale: " + _vm._s(_vm.getTotal()) + "€")
-                      ]),
-                      _vm._v(" "),
-                      _vm.carrello.length > 0
-                        ? _c(
-                            "a",
-                            {
-                              staticClass:
-                                "btn btn-lg btn-success text-uppercase",
-                              attrs: { href: _vm.route }
-                            },
-                            [
-                              _vm._v(
-                                "\n                            vai al checkout\n                        "
-                              )
-                            ]
-                          )
-                        : _vm._e()
-                    ])
-                  ],
-                  2
-                )
-              ]
-            )
-          : _vm._e()
+                    _vm.carrello.length > 0
+                      ? _c(
+                          "a",
+                          {
+                            staticClass:
+                              "btn btn-lg btn-success text-uppercase",
+                            attrs: { href: _vm.route }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            vai al checkout\n                        "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                ],
+                2
+              )
+            : _vm._e()
+        ])
       ])
     ])
   ])
@@ -39311,9 +39361,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h3", { staticClass: "text-uppercase text-right" }, [
-      _c("i", { staticClass: "fas fa-shopping-cart" }),
-      _vm._v(" Carrello\n                ")
+    return _c("h2", { staticClass: "ml-2 mb-3" }, [
+      _c("span", { staticClass: "text-primary" }, [
+        _c("i", { staticClass: "fas fa-shopping-cart" })
+      ]),
+      _vm._v("\n                    Il tuo carrello\n                ")
     ])
   }
 ]
@@ -52240,8 +52292,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
