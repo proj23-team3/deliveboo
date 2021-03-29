@@ -6,6 +6,7 @@
         <div class="row mb-4">
             <div class="col-md-6">
                 <img class="d-block img-fluid mb-4" src="{{ asset('img/orders.png') }}">
+                <a class="btn btn-primary mb-4 display_in" href="{{ route('admin.stats')}}">Statistiche</a> 
             </div>
             <div class="col-md-2">
             </div>
@@ -36,8 +37,7 @@
                 </table>
             </div>
         </div>
-        <a class="btn btn-primary mb-4" href="{{ route('admin.stats')}}">Statistiche</a> 
-        
+        <a class="btn btn-primary mb-4 display_out" href="{{ route('admin.stats')}}">Statistiche</a> 
     </div>
 
     
