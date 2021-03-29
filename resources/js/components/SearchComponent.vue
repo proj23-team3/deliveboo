@@ -17,21 +17,22 @@
                                 <div
                                     class="card_container categories_checkboxes"
                                 >
-                                    <div
-                                        class="checkbox"
+                                    <label
+                                        class="b-contain mr-3"
                                         v-for="category in categories"
                                         :key="category.id"
                                     >
+                                        <span :for="category.id">{{
+                                            category.name
+                                        }}</span>
                                         <input
                                             type="checkbox"
                                             :id="category.id"
                                             :value="category.id"
                                             v-model="checked"
                                         />
-                                        <label :for="category.id">{{
-                                            category.name
-                                        }}</label>
-                                    </div>
+                                        <div class="b-input"></div>
+                                    </label>
                                 </div>
                                 <!-- END FILTER BY CATEGORY -->
                             </div>
@@ -111,13 +112,6 @@
                                                         ><i
                                                             class="fa fa-star purple"
                                                         ></i>
-                                                    </p>
-                                                    <p>
-                                                        Costi di consegna:
-                                                        {{
-                                                            rest.shipping_costs
-                                                        }}
-                                                        €
                                                     </p>
                                                     <a
                                                         class="btn btn-primary"

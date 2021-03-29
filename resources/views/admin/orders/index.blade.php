@@ -2,41 +2,42 @@
 
 @section('content')
     <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th class="id">ID</th>
-                    <th class="customer_name">Cliente</th>
-                    <th class="customer_telephone">Telefono</th>
-                    <th class="customer_address">Indirizzo</th>
-                    <th class="customer_email">Email</th>
-                    <th class="delivery_date">Data Consegna</th>
-                    <th class="delivery_time">Ora Consegna</th>
-                    <th class="amount">Totale</th>
-                    <th class="stats">Statistiche</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($orders as $order)
-                <tr>
-                    <td class="id">{{ $order->id  }}</td>
-                    <td class="customer_name">{{ $order->customer_name  }}</td>
-                    <td class="customer_telephone">{{ $order->customer_telephone  }}</td>
-                    <td class="customer_address">{{ $order->customer_address  }}</td>
-                    <td class="customer_email">{{ $order->customer_email  }}</td>
-                    <td class="delivery_date">{{ $order->delivery_date  }}</td>
-                    <td class="delivery_time">{{ $order->delivery_time  }}</td>
-                    <td class="amount">{{ $order->amount  }} €</td>
-                    <td class="stats">
-                        <a href="{{ route('admin.orders.show', ['order' => $order->id]) }}">
-                            <button class="view_btn">Mostra</button>
-                        </a>
-                    </td>
-                </tr>     
-                @endforeach 
-            </tbody>
-        </table>
-        <a class="btn btn-primary" href="{{ route('admin.stats')}}">Stats</a> 
+        <h1 class="text-center font-weight-bolder pt-3">Ordini effettuati</h1>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <img class="d-block img-fluid mb-4" src="{{ asset('img/orders.png') }}">
+                <a class="btn btn-primary mb-4 display_in" href="{{ route('admin.stats')}}">Statistiche</a> 
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="id white bg_purple">ID</th>
+                            <th class="delivery_date white bg_purple">Data Consegna</th>
+                            <th class="amount white bg_purple">Totale</th>
+                            <th class="stats white bg_purple">Dettagli</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($orders as $order)
+                        <tr>
+                            <td class="id">{{ $order->id  }}</td>
+                            <td class="delivery_date">{{ $order->delivery_date  }}</td>
+                            <td class="amount">{{ $order->amount  }} €</td>
+                            <td class="stats">
+                                <a href="{{ route('admin.orders.show', ['order' => $order->id]) }}">
+                                    <button class="btn btn-primary view_btn">Mostra</button>
+                                </a>
+                            </td>
+                        </tr>     
+                        @endforeach 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a class="btn btn-primary mb-4 display_out" href="{{ route('admin.stats')}}">Statistiche</a> 
     </div>
 
     

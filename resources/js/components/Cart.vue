@@ -73,29 +73,63 @@ export default {
             // store del carrello
             localStorage.setItem("carrello", JSON.stringify(this.carrello));
 
-            // carrello btn
-            const carrelloBtn = document.getElementById("carrello_btn");
-            if (!carrelloBtn.classList.contains("text-success")) {
-                carrelloBtn.classList.add("text-success");
+            const storedCart = JSON.parse(localStorage.getItem("carrello"));
+            const cartBdg = document.getElementById("cart_bdg");
+            const cartBtn = document.getElementById("cart_btn");
+
+            if (!cartBtn.classList.contains("text-success")) {
+                cartBtn.classList.add("text-success");
             }
+            if (cartBdg.classList.contains("d-none")) {
+                cartBdg.classList.remove("d-none");
+            }
+            let quantities = 0;
+
+            storedCart.forEach(element => {
+                quantities += element.qty;
+            });
+            cartBdg.innerText = quantities;
         },
         increase(dish) {
             dish.qty++;
             localStorage.setItem("carrello", JSON.stringify(this.carrello));
+            const storedCart = JSON.parse(localStorage.getItem("carrello"));
+            const cartBdg = document.getElementById("cart_bdg");
+
+            let quantities = 0;
+
+            storedCart.forEach(element => {
+                quantities = element.qty;
+            });
+            cartBdg.innerText = quantities;
         },
         reduce(dish) {
             if (dish.qty > 1) {
                 dish.qty--;
                 localStorage.setItem("carrello", JSON.stringify(this.carrello));
+
+                const storedCart = JSON.parse(localStorage.getItem("carrello"));
+                const cartBdg = document.getElementById("cart_bdg");
+
+                let quantities = 0;
+
+                storedCart.forEach(element => {
+                    quantities = element.qty;
+                });
+                cartBdg.innerText = quantities;
             } else {
                 this.carrello.splice(this.carrello.indexOf(dish), 1);
                 localStorage.setItem("carrello", JSON.stringify(this.carrello));
                 //carrellobtn
                 const carrelloBtn = document.getElementById("carrello_btn");
+                const cartBdg = document.getElementById("cart_bdg");
                 let carrello = JSON.parse(localStorage.getItem("carrello"));
                 if (carrello.length == 0) {
                     if (carrelloBtn.classList.contains("text-success")) {
                         carrelloBtn.classList.remove("text-success");
+                    }
+                    if (!cartBdg.classList.contains("d-none")) {
+                        cartBdg.classList.add("d-none");
                     }
                 }
             }
