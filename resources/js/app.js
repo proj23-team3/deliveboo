@@ -44,10 +44,22 @@ const app = new Vue({
 if (document.getElementById("cart_btn") != null) {
     if (localStorage.carrello) {
         const cartBtn = document.getElementById("cart_btn");
+        const cartBdg = document.getElementById("cart_bdg");
         const storedCart = JSON.parse(localStorage.getItem("carrello"));
+
+        let quantities = 0;
+
+        storedCart.forEach(element => {
+            quantities += element.qty;
+        });
+
         if (storedCart.length > 0) {
             if (!cartBtn.classList.contains("text-success")) {
                 cartBtn.classList.add("text-success");
+            }
+            if (cartBdg.classList.contains("d-none")) {
+                cartBdg.classList.remove("d-none");
+                cartBdg.innerText = quantities;
             }
         }
     }
