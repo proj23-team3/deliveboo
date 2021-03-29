@@ -87,12 +87,23 @@ body {
     display: none;
 }
 
-.card_container:hover .category-name {
-    display: none;
-}
-
-.card_container:hover .category-description {
-    display: block;
+.card_container:hover{
+    img{
+        filter: brightness(50%);
+    }
+    .category-name {
+        display: none;
+    }
+    .category-description {
+        display: block;
+        
+    }
+    h4{
+        animation: fontBeat .85s infinite alternate;
+        @keyframes fontBeat {
+            0%   { transform: scale(1.4); }
+        }
+    }
 }
 
 .appstore {
