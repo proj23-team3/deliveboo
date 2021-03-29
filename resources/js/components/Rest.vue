@@ -3,7 +3,7 @@
         <div class="container ">
             <div class="row risto_image " :style="getRestauImg()"></div>
             <div class="row m-1 p-3">
-                <div class="col-md-6 piatti">
+                <div class="col-md-6 piatti mb-3">
                     <h3 class="text-uppercase text-black">
                         {{ restaurant.name }} menu:
                     </h3>
@@ -30,39 +30,61 @@
                         </div>
                     </div>
                 </div>
-                <div
-                    v-if="carrello.length > 0"
-                    class="offset-md-1 col-md-5 text-center shadow"
-                >
-                    <h3 class="text-uppercase text-right">
-                        <i class="fas fa-shopping-cart"></i> Carrello
-                    </h3>
-                    <div class="row card py-4">
+                <!-- offset-md-1 col-md-5 -->
+                <div class="offset-md-1 col-md-5">
+                    <h2 class="ml-2 mb-3">
+                        <span class="text-primary"
+                            ><i class="fas fa-shopping-cart"></i
+                        ></span>
+                        Il tuo carrello
+                    </h2>
+                    <div v-if="carrello.length > 0" class="shadow rounded pb-3">
                         <div
-                            class="d-flex col-xs-12"
                             v-for="dish in carrello"
                             :key="dish.id"
+                            class="d-flex justify-content-between align-items-center p-3"
                         >
-                            <div class="col-md-4">
-                                <p class="text-uppercase">{{ dish.name }}</p>
+                            <span class="d-inline-block w-25">{{
+                                dish.name
+                            }}</span>
+                            <div
+                                class="d-flex align-items-center border border-primary rounded"
+                            >
+                                <span
+                                    class="qty bg-primary"
+                                    @click="increase(dish)"
+                                >
+                                    <i
+                                        class="fa fa-plus"
+                                        aria-hidden="true"
+                                    ></i>
+                                </span>
+                                <span
+                                    class="d-inline-block mx-2 font-weight-bold"
+                                >
+                                    {{ dish.qty }}
+                                </span>
+                                <span
+                                    class="qty bg-primary"
+                                    @click="reduce(dish)"
+                                >
+                                    <i
+                                        class="fa fa-minus"
+                                        aria-hidden="true"
+                                    ></i>
+                                </span>
                             </div>
-                            <div class="col-md-4">
-                                <a class="btn_rounded" @click="reduce(dish)">
-                                    <i class="fas fa-minus"></i>
-                                </a>
-                                <span class="px-3">{{ dish.qty }}</span>
-                                <a class="btn_rounded" @click="increase(dish)">
-                                    <i class="fas fa-plus"></i>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <p>{{ dish.qty * dish.price }}€</p>
-                            </div>
+                            <span class="d-inline-block w-25 text-right"
+                                >{{ dish.qty * dish.price }}€</span
+                            >
                         </div>
-                        <hr />
-                        <div class="col-xs-12">
-                            <h2>Totale: {{ getTotal() }}€</h2>
-                            <!-- attesa route -->
+                        <div class="text-center">
+                            <h3 class="pt-3 border-top">
+                                Totale:
+                                <span class="font-weight-bold"
+                                    >{{ getTotal() }}€</span
+                                >
+                            </h3>
                             <a
                                 v-if="carrello.length > 0"
                                 :href="route"
@@ -70,7 +92,6 @@
                             >
                                 vai al checkout
                             </a>
-                            <!-- /attesa route -->
                         </div>
                     </div>
                 </div>
@@ -205,5 +226,12 @@ export default {
     &:hover {
         cursor: pointer;
     }
+}
+span.qty {
+    display: grid;
+    padding: 0.3rem;
+    place-items: center;
+    color: #fff;
+    cursor: pointer;
 }
 </style>
