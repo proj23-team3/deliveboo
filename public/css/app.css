@@ -11020,6 +11020,14 @@ body::-webkit-scrollbar {
   color: #450063;
 }
 
+.white {
+  color: white;
+}
+
+.bg_purple {
+  background-color: #450063;
+}
+
 .bg_rose {
   background-color: #ffeae4;
 }
@@ -11135,6 +11143,15 @@ textarea:focus {
   outline: 1px solid #00ccbc;
 }
 
+.display_out {
+  display: none !important;
+}
+
+.small_img {
+  width: 300px;
+  float: right;
+}
+
 @media screen and (max-width: 990px) {
   .navbar_nav li {
     margin: 5px;
@@ -11151,6 +11168,19 @@ textarea:focus {
 
   .copyright {
     text-align: left !important;
+  }
+
+  .small_img {
+    width: 300px;
+    float: left !important;
+  }
+
+  .display_in {
+    display: none !important;
+  }
+
+  .display_out {
+    display: inline-block !important;
   }
 }
 
