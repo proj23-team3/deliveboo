@@ -2,7 +2,14 @@
 
 @section('content')
 
-    <h1 class="mt-5 font-weight-bolder">Crea il tuo piatto <i class="fas fa-utensils"></i></h1>
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="mt-5 font-weight-bolder">Crea il tuo piatto <i class="fas fa-utensils"></i></h1>
+        </div>
+        <div class="col-md-4">
+            <img class="d-block img-fluid small_img" src="{{ asset('img/create.png') }}">  
+        </div>
+    </div>
 
 
     <form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
