@@ -37,7 +37,7 @@
                     Collabora con noi
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="admin">Ristoranti</a>
+                    <a class="dropdown-item" href="{{ route('admin.index')}}">Ristoranti</a>
                     <a class="dropdown-item" href="#">Lavora con noi</a>
                     <a class="dropdown-item" href="#">Deliveboo per le Aziende</a>
                   </div>
