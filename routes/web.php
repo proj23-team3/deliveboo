@@ -43,3 +43,8 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->
     // Route::resource('user', 'UserController')->except(['index','create','show','store','destroy']);
 
 });
+
+// team3
+Route::get('/team3', function () {
+    return view('team3');
+});
