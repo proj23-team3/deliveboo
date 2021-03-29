@@ -146,8 +146,24 @@ export default {
             // store del carrello
             localStorage.setItem("carrello", JSON.stringify(this.carrello));
 
-            // cart btn
+            const storedCart = JSON.parse(localStorage.getItem("carrello"));
+            const cartBdg = document.getElementById("cart_bdg");
             const cartBtn = document.getElementById("cart_btn");
+
+            if (!cartBtn.classList.contains("text-success")) {
+                cartBtn.classList.add("text-success");
+            }
+            if (cartBdg.classList.contains("d-none")) {
+                cartBdg.classList.remove("d-none");
+            }
+            let quantities = 0;
+
+            storedCart.forEach(element => {
+                quantities += element.qty;
+            });
+            cartBdg.innerText = quantities;
+
+            // cart btn
             if (!cartBtn.classList.contains("text-success")) {
                 cartBtn.classList.add("text-success");
             }
@@ -155,20 +171,43 @@ export default {
         increase(dish) {
             dish.qty++;
             localStorage.setItem("carrello", JSON.stringify(this.carrello));
+            const storedCart = JSON.parse(localStorage.getItem("carrello"));
+            const cartBdg = document.getElementById("cart_bdg");
+
+            let quantities = 0;
+
+            storedCart.forEach(element => {
+                quantities = element.qty;
+            });
+            cartBdg.innerText = quantities;
         },
         reduce(dish) {
             if (dish.qty > 1) {
                 dish.qty--;
                 localStorage.setItem("carrello", JSON.stringify(this.carrello));
+
+                const storedCart = JSON.parse(localStorage.getItem("carrello"));
+                const cartBdg = document.getElementById("cart_bdg");
+
+                let quantities = 0;
+
+                storedCart.forEach(element => {
+                    quantities = element.qty;
+                });
+                cartBdg.innerText = quantities;
             } else {
                 this.carrello.splice(this.carrello.indexOf(dish), 1);
                 localStorage.setItem("carrello", JSON.stringify(this.carrello));
                 //cartbtn
                 const cartBtn = document.getElementById("cart_btn");
+                const cartBdg = document.getElementById("cart_bdg");
                 let cart = JSON.parse(localStorage.getItem("carrello"));
                 if (cart.length == 0) {
                     if (cartBtn.classList.contains("text-success")) {
                         cartBtn.classList.remove("text-success");
+                    }
+                    if (!cartBdg.classList.contains("d-none")) {
+                        cartBdg.classList.add("d-none");
                     }
                 }
             }

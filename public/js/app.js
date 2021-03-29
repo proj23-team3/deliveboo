@@ -2040,32 +2040,64 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       } // store del carrello
 
 
-      localStorage.setItem("carrello", JSON.stringify(this.carrello)); // carrello btn
+      localStorage.setItem("carrello", JSON.stringify(this.carrello));
+      var storedCart = JSON.parse(localStorage.getItem("carrello"));
+      var cartBdg = document.getElementById("cart_bdg");
+      var cartBtn = document.getElementById("cart_btn");
 
-      var carrelloBtn = document.getElementById("carrello_btn");
-
-      if (!carrelloBtn.classList.contains("text-success")) {
-        carrelloBtn.classList.add("text-success");
+      if (!cartBtn.classList.contains("text-success")) {
+        cartBtn.classList.add("text-success");
       }
+
+      if (cartBdg.classList.contains("d-none")) {
+        cartBdg.classList.remove("d-none");
+      }
+
+      var quantities = 0;
+      storedCart.forEach(function (element) {
+        quantities += element.qty;
+      });
+      cartBdg.innerText = quantities;
     },
     increase: function increase(dish) {
       dish.qty++;
       localStorage.setItem("carrello", JSON.stringify(this.carrello));
+      var storedCart = JSON.parse(localStorage.getItem("carrello"));
+      var cartBdg = document.getElementById("cart_bdg");
+      var quantities = 0;
+      storedCart.forEach(function (element) {
+        quantities = element.qty;
+      });
+      cartBdg.innerText = quantities;
     },
     reduce: function reduce(dish) {
       if (dish.qty > 1) {
         dish.qty--;
         localStorage.setItem("carrello", JSON.stringify(this.carrello));
+        var storedCart = JSON.parse(localStorage.getItem("carrello"));
+        var cartBdg = document.getElementById("cart_bdg");
+        var quantities = 0;
+        storedCart.forEach(function (element) {
+          quantities = element.qty;
+        });
+        cartBdg.innerText = quantities;
       } else {
         this.carrello.splice(this.carrello.indexOf(dish), 1);
         localStorage.setItem("carrello", JSON.stringify(this.carrello)); //carrellobtn
 
         var carrelloBtn = document.getElementById("carrello_btn");
+
+        var _cartBdg = document.getElementById("cart_bdg");
+
         var carrello = JSON.parse(localStorage.getItem("carrello"));
 
         if (carrello.length == 0) {
           if (carrelloBtn.classList.contains("text-success")) {
             carrelloBtn.classList.remove("text-success");
+          }
+
+          if (!_cartBdg.classList.contains("d-none")) {
+            _cartBdg.classList.add("d-none");
           }
         }
       }
@@ -2295,9 +2327,24 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       } // store del carrello
 
 
-      localStorage.setItem("carrello", JSON.stringify(this.carrello)); // cart btn
-
+      localStorage.setItem("carrello", JSON.stringify(this.carrello));
+      var storedCart = JSON.parse(localStorage.getItem("carrello"));
+      var cartBdg = document.getElementById("cart_bdg");
       var cartBtn = document.getElementById("cart_btn");
+
+      if (!cartBtn.classList.contains("text-success")) {
+        cartBtn.classList.add("text-success");
+      }
+
+      if (cartBdg.classList.contains("d-none")) {
+        cartBdg.classList.remove("d-none");
+      }
+
+      var quantities = 0;
+      storedCart.forEach(function (element) {
+        quantities += element.qty;
+      });
+      cartBdg.innerText = quantities; // cart btn
 
       if (!cartBtn.classList.contains("text-success")) {
         cartBtn.classList.add("text-success");
@@ -2306,21 +2353,42 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     increase: function increase(dish) {
       dish.qty++;
       localStorage.setItem("carrello", JSON.stringify(this.carrello));
+      var storedCart = JSON.parse(localStorage.getItem("carrello"));
+      var cartBdg = document.getElementById("cart_bdg");
+      var quantities = 0;
+      storedCart.forEach(function (element) {
+        quantities = element.qty;
+      });
+      cartBdg.innerText = quantities;
     },
     reduce: function reduce(dish) {
       if (dish.qty > 1) {
         dish.qty--;
         localStorage.setItem("carrello", JSON.stringify(this.carrello));
+        var storedCart = JSON.parse(localStorage.getItem("carrello"));
+        var cartBdg = document.getElementById("cart_bdg");
+        var quantities = 0;
+        storedCart.forEach(function (element) {
+          quantities = element.qty;
+        });
+        cartBdg.innerText = quantities;
       } else {
         this.carrello.splice(this.carrello.indexOf(dish), 1);
         localStorage.setItem("carrello", JSON.stringify(this.carrello)); //cartbtn
 
         var cartBtn = document.getElementById("cart_btn");
+
+        var _cartBdg = document.getElementById("cart_bdg");
+
         var cart = JSON.parse(localStorage.getItem("carrello"));
 
         if (cart.length == 0) {
           if (cartBtn.classList.contains("text-success")) {
             cartBtn.classList.remove("text-success");
+          }
+
+          if (!_cartBdg.classList.contains("d-none")) {
+            _cartBdg.classList.add("d-none");
           }
         }
       }
@@ -51900,11 +51968,21 @@ var app = new Vue({
 if (document.getElementById("cart_btn") != null) {
   if (localStorage.carrello) {
     var cartBtn = document.getElementById("cart_btn");
+    var cartBdg = document.getElementById("cart_bdg");
     var storedCart = JSON.parse(localStorage.getItem("carrello"));
+    var quantities = 0;
+    storedCart.forEach(function (element) {
+      quantities += element.qty;
+    });
 
     if (storedCart.length > 0) {
       if (!cartBtn.classList.contains("text-success")) {
         cartBtn.classList.add("text-success");
+      }
+
+      if (cartBdg.classList.contains("d-none")) {
+        cartBdg.classList.remove("d-none");
+        cartBdg.innerText = quantities;
       }
     }
   }
@@ -52292,8 +52370,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
