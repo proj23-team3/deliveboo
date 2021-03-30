@@ -189,8 +189,8 @@
     // fill it!
     let egg = document.querySelector('a.egg');
     egg.addEventListener('click', function() {
-        $("input[name=customer_name]").val('andrea');
-        $("input[name=customer_email]").val('andrea@example.com');
+        $("input[name=customer_name]").val('Team 3');
+        $("input[name=customer_email]").val('team3@mail.com');
         $("input[name=customer_telephone]").val('312123231');
         $("input[name=customer_address]").val('Via del team 3');
         // $("input[name=delivery_time]").val('20:00');

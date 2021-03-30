@@ -18,7 +18,8 @@
 
         .avatars {
             display: flex;
-            flex-wrap: wrap
+            flex-wrap: wrap;
+            margin-top: 40px;
         }
 
         .avatars .card {
@@ -31,7 +32,7 @@
             width: 100%;
         }
 
-        .card .content span:first-of-type {
+        .card .content span {
             display: inline-block;
             margin: 5px 0;
             font-style: italic;
@@ -62,7 +63,7 @@
             </div>
             <div class="card-content">
                 <div class="content">
-                    <p class="title is-3">Andrea Di Cataldi</p>
+                    <p class="title is-3">A. Di Cataldi</p>
                     <p class="subtitle is-5">aka LinksMan</p>
                     <p>Il suo mantra:</p>
                     <blockquote>"Raga un attimo che ha citofonato il corriere!"</blockquote>
@@ -88,7 +89,7 @@
             </div>
             <div class="card-content">
                 <div class="content">
-                    <p class="title is-3">Antonio Lo Voto</p>
+                    <p class="title is-3">A. Lo Votrico</p>
                     <p class="subtitle is-5">aka The Nightwatcher</p>
                     <p>Non ha un mantra. Lui crea mantra.</p>
                     <p>Dicono di lui nel team:</p>
@@ -115,7 +116,7 @@
             <div class="card-content">
 
                 <div class="content">
-                    <p class="title is-3">Federico Scarpati</p>
+                    <p class="title is-3">F. Scarpati</p>
                     <p class="subtitle is-5">aka MemeMan</p>
                     <p>Il suo mantra:</p>
                     <blockquote>"Raga a me non funziona"</blockquote>
@@ -140,7 +141,7 @@
             <div class="card-content">
 
                 <div class="content">
-                    <p class="title is-3">Andrea Gaggia</p>
+                    <p class="title is-3">A. Gaggìa</p>
                     <p class="subtitle is-5">aka Mr. Wolf</p>
                     <p>Il suo mantra:</p>
                     <blockquote>"Ce l'ho fatta ma è na roba grezzissima..."</blockquote>
@@ -164,7 +165,7 @@
             <div class="card-content">
 
                 <div class="content">
-                    <p class="title is-3">Mirko Saponeiro</p>
+                    <p class="title is-3">M. Saponaro</p>
                     <p class="subtitle is-5">aka LogMan</p>
                     <p>Il suo mantra:</p>
                     <blockquote>"Ma i component quando li facciamo??"</blockquote>
