@@ -165,13 +165,6 @@
                                                             class="fa fa-star purple"
                                                         ></i>
                                                     </p>
-                                                    <p>
-                                                        Costi di consegna:
-                                                        {{
-                                                            searched.shipping_costs
-                                                        }}
-                                                        €
-                                                    </p>
                                                     <a
                                                         class="btn btn-primary"
                                                         :href="
