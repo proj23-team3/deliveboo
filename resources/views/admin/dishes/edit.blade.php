@@ -68,7 +68,7 @@
                     <input type="file" name="dish_image" id="dish_image" class="form-control-file">
                 </div>
             </div>
-            <button class="btn btn-primary mt-3" type="submit">Modifica il piatto</button>
+            <button class="btn btn-primary mt-3 mb-4" type="submit">Modifica il piatto</button>
         </form>
 
 @endsection
