@@ -10,24 +10,30 @@
                     <div
                         v-for="dish in restaurant.dishes"
                         :key="dish.id"
-                        class="row shadow rounded p-4"
+                        class="container shadow rounded p-4"
                     >
-                        <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
                             <h4 class="text-uppercase">{{ dish.dish_name }}</h4>
                             <p>{{ dish.dish_price }}€</p>
-                            <button
-                                class="btn btn-primary"
-                                @click="addToCart(dish)"
-                            >
-                                Aggiungi al carrello
-                            </button>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <div
                                 class="dish_image "
                                 :style="getDishImg(dish)"
                             ></div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button
+                                class="btn btn-primary btn-block mt-2"
+                                @click="addToCart(dish)"
+                            >
+                                Aggiungi al carrello
+                            </button>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <!-- offset-md-1 col-md-5 -->
