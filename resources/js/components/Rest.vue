@@ -183,7 +183,7 @@ export default {
             let quantities = 0;
 
             storedCart.forEach(element => {
-                quantities = element.qty;
+                quantities += element.qty;
             });
             cartBdg.innerText = quantities;
         },
@@ -198,7 +198,7 @@ export default {
                 let quantities = 0;
 
                 storedCart.forEach(element => {
-                    quantities = element.qty;
+                    quantities += element.qty;
                 });
                 cartBdg.innerText = quantities;
             } else {

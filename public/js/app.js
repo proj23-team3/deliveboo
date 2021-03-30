@@ -2066,7 +2066,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var cartBdg = document.getElementById("cart_bdg");
       var quantities = 0;
       storedCart.forEach(function (element) {
-        quantities = element.qty;
+        quantities += element.qty;
       });
       cartBdg.innerText = quantities;
     },
@@ -2078,7 +2078,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         var cartBdg = document.getElementById("cart_bdg");
         var quantities = 0;
         storedCart.forEach(function (element) {
-          quantities = element.qty;
+          quantities += element.qty;
         });
         cartBdg.innerText = quantities;
       } else {
@@ -2363,7 +2363,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var cartBdg = document.getElementById("cart_bdg");
       var quantities = 0;
       storedCart.forEach(function (element) {
-        quantities = element.qty;
+        quantities += element.qty;
       });
       cartBdg.innerText = quantities;
     },
@@ -2375,7 +2375,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         var cartBdg = document.getElementById("cart_bdg");
         var quantities = 0;
         storedCart.forEach(function (element) {
-          quantities = element.qty;
+          quantities += element.qty;
         });
         cartBdg.innerText = quantities;
       } else {
@@ -52355,8 +52355,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/andreag/Documents/BOOLEAN/Esercizi/PHP/LARAVEL/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/antoniolovotrico/Documents/Boolean/classe_23/laravel/deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/antoniolovotrico/Documents/Boolean/classe_23/laravel/deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
