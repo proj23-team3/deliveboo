@@ -10980,12 +10980,19 @@ body::-webkit-scrollbar {
   position: relative;
 }
 
+.cart_button .mini_cart {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+}
+
 .cart_button .cart_badge {
   color: white;
   padding: 1px 6px;
   position: absolute;
-  top: -8px;
-  right: -10px;
+  bottom: 80%;
+  left: 100%;
   background-color: red;
   border-radius: 100%;
 }
