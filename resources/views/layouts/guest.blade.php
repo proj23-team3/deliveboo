@@ -53,7 +53,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item btn btn-light btn-sm">
-                                    <a class="nav-link" href="#">Menu</a>
+                                    <a class="nav-link" href="/team3">About</a>
                                 </li>
                             </ul>
                         </div>
@@ -134,7 +134,7 @@
                         <!-- Copyright -->
                         <div class="copyright col-md-6 p-3 text-white">
                             &copy; 2021 Copyright:
-                            <a class="text-white" href="#">Team 3 Classe #23</a>
+                            <a class="text-white" href="/team3">Team 3 Classe #23</a>
                         </div>
                         <!-- Copyright -->
                     </div>

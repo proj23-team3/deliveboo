@@ -23,7 +23,6 @@
 
         .avatars .card {
             flex: 1 200px;
-            border: 1px solid #0026ff;
             padding: 0.3rem;
             border-radius: .2rem;
         }
@@ -44,20 +43,15 @@
             top: -5px;
         }
 
-        h1 {
-            text-align: center;
-            color: #FFF;
-            font-size: 80px;
-            font-weight: light;
-            margin: 30px 0;
-            text-shadow: 0 0 10px #0026ff, 0 0 20px #0026ff, 0 0 30px #0026ff, 0 0 40px #4144ff, 0 0 70px #4144ff, 0 0 80px #4144ff, 0 0 100px #4144ff, 0 0 150px #4144ff;
+        .content blockquote {
+            background-color: #dffffd;
+            border-left: 5px solid #06babb;
         }
 
     </style>
 </head>
 
 <body>
-    <h1>Team 3</h1>
     <div class="avatars">
         {{-- andre --}}
         <div class="card">
@@ -74,10 +68,12 @@
                     <blockquote>"Raga un attimo che ha citofonato il corriere!"</blockquote>
                     <p>Dicono di lui nel team:</p>
                     <blockquote>
-                        <span>L'unica persona che conosco che scrive correttamente Sì (con l'accento). Tanta roba
+                        <span><span class="quote"><i class="fas fa-quote-right"></i></span> L'unica persona che conosco
+                            che scrive correttamente Sì (con l'accento). Tanta roba
                             ✅</span>
                         <br>
-                        <span>L'efficienza al primo posto... finché dura (dai 5 minuti alle 3 ore... dipende)</span>
+                        <span><span class="quote"><i class="fas fa-quote-right"></i></span> L'efficienza al primo
+                            posto... finché dura (dai 5 minuti alle 3 ore... dipende)</span>
                     </blockquote>
                 </div>
             </div>
