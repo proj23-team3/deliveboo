@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-center font-weight-bolder pt-3 pb-3">Dettagli ordini</h1>
+    <h1 class="text-center font-weight-bolder pt-3 pb-3">Dettaglio ordine</h1>
     <div class="row mb-4">
         <div class="col-md-10">
             <table class="table table-responsive">

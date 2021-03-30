@@ -2283,6 +2283,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["rest", "route"],
   data: function data() {
@@ -2439,13 +2445,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -39253,38 +39252,44 @@ var render = function() {
             _vm._l(_vm.restaurant.dishes, function(dish) {
               return _c(
                 "div",
-                { key: dish.id, staticClass: "row shadow rounded p-4" },
+                { key: dish.id, staticClass: "container shadow rounded p-4" },
                 [
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("h4", { staticClass: "text-uppercase" }, [
-                      _vm._v(_vm._s(dish.dish_name))
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("h4", { staticClass: "text-uppercase" }, [
+                        _vm._v(_vm._s(dish.dish_name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(dish.dish_price) + "€")])
                     ]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(dish.dish_price) + "€")]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.addToCart(dish)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Aggiungi al carrello\n                        "
-                        )
-                      ]
-                    )
+                    _c("div", { staticClass: "col-6" }, [
+                      _c("div", {
+                        staticClass: "dish_image ",
+                        style: _vm.getDishImg(dish)
+                      })
+                    ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("div", {
-                      staticClass: "dish_image ",
-                      style: _vm.getDishImg(dish)
-                    })
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary btn-block mt-2",
+                          on: {
+                            click: function($event) {
+                              return _vm.addToCart(dish)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Aggiungi al carrello\n                        "
+                          )
+                        ]
+                      )
+                    ])
                   ])
                 ]
               )
@@ -39688,14 +39693,6 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _vm._m(1, true),
-                                _vm._v(" "),
-                                _c("p", [
-                                  _vm._v(
-                                    "\n                                                    Costi di consegna:\n                                                    " +
-                                      _vm._s(searched.shipping_costs) +
-                                      "\n                                                    €\n                                                "
-                                  )
-                                ]),
                                 _vm._v(" "),
                                 _c(
                                   "a",
@@ -52358,8 +52355,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean\deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Andrea\Desktop\Boolean\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Federico\Desktop\Classe 23\Esercizi\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
